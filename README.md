@@ -10,7 +10,7 @@ This project is interpreted on Ubuntu 20.04 using Python 3.8.x
 
 
 ## Authors
-Dennis Murage [Github](https://github.com/Murags)
+Dennis Murage [Github](https://github.com/Murags)\
 Michael Maina [Github](https://github.com/Michael-Maina)
 
 ## License
