@@ -132,7 +132,8 @@ class MBFRCommand(cmd.Cmd):
         inst_list = []
         if len(line) == 0:
             inst_list = list(storage.all().values())
-            print(inst_list)
+            # Prints each instance in the list on a new line
+            print(*inst_list, sep='\n')
         elif not line[0] in self.__classes:
             print("** class doesn't exist **")
         else:
@@ -140,7 +141,7 @@ class MBFRCommand(cmd.Cmd):
                 cls_name = key.split(".")
                 if cls_name[0] == line[0]:
                     inst_list.append(value)
-            print(inst_list)
+            print(*inst_list, sep='\n')
 
     def help_all(self):
         """Help output for the all command"""

@@ -20,7 +20,8 @@ class DBstorage:
         host = getenv('host')
         db = getenv('db')
 
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(username, password, host, db))
+        self.__engine = create_engine(
+            'mysql+mysqldb://{}:{}@{}/{}'.format(username, password, host, db))
 
 
     def all(self, cls=None):
@@ -46,5 +47,5 @@ class DBstorage:
 
     def reload(self):
         Base.metadata.create_all(self.__engine)
-        sesh = sessionmaker(bind=self.__engine)
+        sesh = sessionmaker(bind=self.__engine, expire_on_commit=False)
         self.__session = sesh()
