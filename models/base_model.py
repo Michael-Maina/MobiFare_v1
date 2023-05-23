@@ -8,7 +8,7 @@ import datetime
 
 Base = declarative_base()
 
-class BaseModel:
+class BaseModel():
 
     id = Column(String(60), default=uuid.uuid4(), primary_key=True)
     created_at = Column(DateTime, default=datetime.datetime.utcnow())
@@ -25,3 +25,7 @@ class BaseModel:
         self.updated_at = datetime.datetime.now()
         storage.new(self)
         storage.save()
+
+    def __repr__(self):
+        return "[{:s}] ({:s}) {}".format(self.__class__.__name__,
+                                         self.id, self.__dict__)
