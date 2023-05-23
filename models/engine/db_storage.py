@@ -22,7 +22,6 @@ class DBstorage:
 
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(username, password, host, db), pool_pre_ping=True)
 
-
     def all(self, cls=None):
         """query on the current database session"""
         new_dict = {}
@@ -48,6 +47,4 @@ class DBstorage:
 
     def reload(self):
         Base.metadata.create_all(self.__engine)
-        sess_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
-        sesh= scoped_session(sess_factory)
         self.__session = sesh()

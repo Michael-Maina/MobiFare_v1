@@ -58,9 +58,12 @@ class MBFRCommand(cmd.Cmd):
             input_list = [arg[:match.span()[0]], arg[match.span()[1]:]]
             input_list[1] = re.sub('[",]+', '', input_list[1])
 
-            if re.search(r"[\{]", input_list[1]) is not None: # Searches for a dictionary in the input
-                input_list[1] = re.sub(',(?=.*\{)', '', input_list[1], 1) # Only substitutes the first comma in the input
-                input_list[1] = re.sub('["]+', '', input_list[1]) # Substitutes "
+            # Searches for a dictionary in the input
+            if re.search(r"[\{]", input_list[1]) is not None:
+                # Only substitutes the first comma in the input
+                input_list[1] = re.sub(',(?=.*\{)', '', input_list[1], 1)
+                # Substitutes "
+                input_list[1] = re.sub('["]+', '', input_list[1])
 
                 match = re.search(r"\((.*?)\)", input_list[1])
             else:
@@ -129,17 +132,17 @@ class MBFRCommand(cmd.Cmd):
         line = arg.split()
         inst_list = []
         if len(line) == 0:
-            for key, value in storage.all().items():
-                inst_list.append(value.__str__())
-            print(inst_list)
+            inst_list = list(storage.all().values())
+            # Prints each instance in the list on a new line
+            print(*inst_list, sep='\n')
         elif not line[0] in self.__classes:
             print("** class doesn't exist **")
         else:
             for key, value in storage.all().items():
                 cls_name = key.split(".")
                 if cls_name[0] == line[0]:
-                    inst_list.append(value.__str__())
-            print(inst_list)
+                    inst_list.append(value)
+            print(*inst_list, sep='\n')
 
     def help_all(self):
         """Help output for the all command"""
@@ -163,8 +166,8 @@ class MBFRCommand(cmd.Cmd):
             else:
                 search_key = line[0] + "." + line[1]
                 if search_key in storage.all().keys():
-                    del storage.all()[search_key]
-                    storage.save()
+                    #del storage.all()[search_key]
+                    storage.delete(storage.all()[search_key])
                 else:
                     print("** no instance found **")
 
@@ -208,6 +211,7 @@ class MBFRCommand(cmd.Cmd):
                 #    id_no = key.split(".")
                 #    if id_no[1] == line[1] and id_no[0] == line[0]:
                 #        check = True
+                    value = storage.all().get(search_key)
                     if len(line) == 2:
                         print("** attribute name missing **")
                     elif len(line) == 3: # An argument list with a dictionary has a length of 3
@@ -280,7 +284,6 @@ class MBFRCommand(cmd.Cmd):
         """Help output for the quit command"""
         print("Exits the program")
         print()
-
 
 
 if __name__ == '__main__':
