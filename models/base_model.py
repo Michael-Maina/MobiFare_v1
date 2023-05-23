@@ -19,7 +19,6 @@ class BaseModel():
         self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
 
-
     def save(self):
         from models import storage
         self.updated_at = datetime.datetime.now()
