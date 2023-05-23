@@ -2,7 +2,7 @@
 
 from os import getenv
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
 from models.base_model import Base
 from models.users import User
 
@@ -20,7 +20,7 @@ class DBstorage:
         host = getenv('host')
         db = getenv('db')
 
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(username, password, host, db))
+        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(username, password, host, db), pool_pre_ping=True)
 
 
     def all(self, cls=None):
@@ -29,6 +29,8 @@ class DBstorage:
         for clss in classes:
             if cls is None or cls is classes[clss] or cls is clss:
                 objs = self.__session.query(classes[clss]).all()
+                print(objs)
+                print()
                 for obj in objs:
                     key = obj.__class__.__name__ + '.' + obj.id
                     new_dict[key] = obj
@@ -46,5 +48,6 @@ class DBstorage:
 
     def reload(self):
         Base.metadata.create_all(self.__engine)
-        sesh = sessionmaker(bind=self.__engine)
+        sess_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        sesh= scoped_session(sess_factory)
         self.__session = sesh()
