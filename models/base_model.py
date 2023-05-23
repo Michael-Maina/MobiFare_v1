@@ -2,15 +2,17 @@
 
 
 import uuid
-from sqlalchemy import Column, String, DateTime
+from sqlalchemy import Column, String, DateTime, Integer
 from sqlalchemy.ext.declarative import declarative_base
-import datetime
+from datetime import datetime
+from sqlalchemy import orm
 
 Base = declarative_base()
 
 class BaseModel():
 
-    id = Column(String(60), default=uuid.uuid4, primary_key=True)
+
+    id = Column(String(60), primary_key=True)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.datetime.utcnow)
 
@@ -19,10 +21,9 @@ class BaseModel():
         self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
 
-
     def save(self):
         from models import storage
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
         storage.new(self)
         storage.save()
 
