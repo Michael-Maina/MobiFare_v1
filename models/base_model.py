@@ -4,7 +4,7 @@
 import uuid
 from sqlalchemy import Column, String, DateTime, Integer
 from sqlalchemy.ext.declarative import declarative_base
-from datetime import datetime
+import datetime
 from sqlalchemy import orm
 
 Base = declarative_base()
@@ -23,7 +23,7 @@ class BaseModel():
 
     def save(self):
         from models import storage
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.datetime.now()
         storage.new(self)
         storage.save()
 
