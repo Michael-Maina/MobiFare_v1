@@ -10,9 +10,9 @@ Base = declarative_base()
 
 class BaseModel():
 
-    id = Column(String(60), default=uuid.uuid4(), primary_key=True)
-    created_at = Column(DateTime, default=datetime.datetime.utcnow())
-    updated_at = Column(DateTime, default=datetime.datetime.utcnow())
+    id = Column(String(60), default=uuid.uuid4, primary_key=True)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.datetime.utcnow)
 
     def __init__ (self):
         self.id = uuid.uuid4()
