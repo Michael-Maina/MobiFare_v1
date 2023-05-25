@@ -9,7 +9,6 @@ from models.owners import Owner
 from models.payments import Payment
 from models.reviews import Review
 from models.users import User
-import uuid
 from models.vehicles import Vehicle
 
 
@@ -117,6 +116,7 @@ class MBFRCommand(cmd.Cmd):
                 instance = storage.all().get(search_key,
                                              "** no instance found **")
                 print(instance)
+
 
     def help_show(self):
         """Help output for the show command"""
