@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 """Entry point for the command interpreter """
 import cmd
-#import models
 import re
 from models.__init__ import storage
 from models.base_model import BaseModel
-#from models.operators import Operator
-#from models.owners import Owner
-#from models.payments import Payment
-#from models.reviews import Review
+from models.operators import Operator
+from models.owners import Owner
+from models.payments import Payment
+from models.reviews import Review
 from models.users import User
-#from models.vehicles import Vehicle
+from models.vehicles import Vehicle
 
 
 def isfloat(arg):
@@ -91,6 +90,7 @@ class MBFRCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 new_inst = eval(line[0])()
+
                 new_inst.save()
                 print("{}".format(new_inst.id))
 
@@ -116,6 +116,7 @@ class MBFRCommand(cmd.Cmd):
                 instance = storage.all().get(search_key,
                                              "** no instance found **")
                 print(instance)
+
 
     def help_show(self):
         """Help output for the show command"""

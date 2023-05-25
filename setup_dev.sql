@@ -9,10 +9,11 @@ FLUSH PRIVILEGES;
 
 USE mobifare_dev_db;
 
-DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS users;
 
-CREATE TABLE users (
-  id VARCHAR(60) PRIMARY KEY,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-)
+-- CREATE TABLE `users` (
+--   `id` VARCHAR(60),
+--   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+--   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+--   PRIMARY KEY (id)
+-- )

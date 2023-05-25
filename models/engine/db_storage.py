@@ -2,12 +2,20 @@
 
 from os import getenv
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
 from models.base_model import Base
 from models.users import User
+from models.vehicles import Vehicle
+from models.operators import Operator
+from models.owners import Owner
+from models.payments import Payment
+from models.reviews import Review
+import models
 
 
-classes = {'User': User}
+classes = {'User': User, 'Vehicle': Vehicle, 'Operator': Operator,
+           'Owner': Owner, 'Payment': Payment, 'Review': Review}
+
 
 class DBstorage:
 
@@ -21,8 +29,7 @@ class DBstorage:
         db = getenv('db')
 
         self.__engine = create_engine(
-            'mysql+mysqldb://{}:{}@{}/{}'.format(username, password, host, db))
-
+            'mysql+mysqldb://{}:{}@{}/{}'.format(username, password, host, db), pool_pre_ping=True)
 
     def all(self, cls=None):
         """query on the current database session"""
@@ -49,3 +56,14 @@ class DBstorage:
         Base.metadata.create_all(self.__engine)
         sesh = sessionmaker(bind=self.__engine, expire_on_commit=False)
         self.__session = sesh()
+
+    def get(self, cls, id):
+        if cls not in classes.values():
+            return None
+
+        all_cls = models.storage.all(cls)
+        for value in all_cls.values():
+            if (value.id == id):
+                return value
+
+        return None
