@@ -15,3 +15,13 @@ def reviews():
         list_reviews.append(review.to_dict())
 
     return jsonify(list_reviews)
+
+
+@app.route('/reviews', methods=['POST'])
+def post_reviews():
+    data = request.get_json()
+
+    new_instance = Review(**data)
+    new_instance.save()
+
+    return jsonify(new_instance.to_dict())
