@@ -5,6 +5,7 @@ from flask import jsonify
 from flask import request
 from models import storage
 from models.owners import Owner
+from models.vehicles import Vehicle
 
 
 @app.route('/owners', methods=['GET'])
@@ -46,3 +47,14 @@ def owner_vehicles(id):
         new.append(vehicle.to_dict())
 
     return jsonify(new)
+
+
+@app.route('/owners/<id>/vehicles', methods=['POST'])
+def post_vehicle(id):
+    data = request.get_json()
+
+    new_instance = Vehicle(**data)
+    new_instance.owner_id = id
+    new_instance.save()
+
+    return jsonify(new_instance.to_dict())
