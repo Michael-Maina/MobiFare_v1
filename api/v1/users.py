@@ -7,7 +7,7 @@ from models import storage
 from models.users import User
 
 
-@app.route('/users')
+@app.route('/users', methods=['GET'])
 def get_users():
     user_list = storage.all(User).values()
     list_users = []
@@ -16,6 +16,7 @@ def get_users():
 
     return jsonify(list_users)
 
+
 @app.route('/users', methods=['POST'])
 def post_users():
     data = request.get_json()
@@ -23,7 +24,8 @@ def post_users():
     new = User(**data)
     new.save()
 
-    return jsonify({'status':'ok'})
+    return jsonify({'status': 'ok'})
+
 
 @app.route('/users/<id>')
 def user_id(id):
@@ -34,3 +36,26 @@ def user_id(id):
             return jsonify(user.to_dict())
 
     return jsonify([])
+
+
+@app.route('/users/<id>', methods=['DELETE'])
+def delete_user(id):
+    user = storage.get(User, id)
+
+    if user:
+        storage.delete(user)
+    return jsonify({'status': 'ok'})
+
+
+@app.route('/users/<id>', methods=['PUT'])
+def update_user(id):
+    user = storage.get(User, id)
+
+    data = request.get_json()
+
+    if user:
+        for key, value in data.items():
+            setattr(user, key, value)
+
+        storage.save()
+    return jsonify({'status': 'ok'})
