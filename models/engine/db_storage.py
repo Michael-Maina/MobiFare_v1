@@ -29,7 +29,8 @@ class DBstorage:
         db = getenv('db')
 
         self.__engine = create_engine(
-            'mysql+mysqldb://{}:{}@{}/{}'.format(username, password, host, db), pool_pre_ping=True)
+            'mysql+mysqldb://{}:{}@{}/{}'.format(username, password, host, db),
+            pool_pre_ping=True)
 
     def all(self, cls=None):
         """query on the current database session"""
@@ -55,7 +56,8 @@ class DBstorage:
     def reload(self):
         Base.metadata.create_all(self.__engine)
         sesh = sessionmaker(bind=self.__engine, expire_on_commit=False)
-        self.__session = sesh()
+        Session = scoped_session(sesh)
+        self.__session = Session()
 
     def get(self, cls, id):
         if cls not in classes.values():
