@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Page - Mobifare</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/user.css?{{ cache_id }}" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="container">
+        <div class="logo">Mobifare</div>
+        <div class="username">John Doe</div>
+        <!-- Top navigation menu -->
+      </div>
+    </header>
+
+    <div class="container">
+      <aside class="sidebar">
+        <ul>
+          <li>Dashboard</li>
+          <li>Settings</li>
+          <li>Help</li>
+          <li>Sign out</li>
+        </ul>
+      </aside>
+
+      <main class="content">
+        <section class="welcome">
+          <h1>Welcome, John Doe!</h1>
+          Here's your dashboard. You can view your payments, transaction
+          history, and adjust your settings from the sidebar navigation.
+        </section>
+        <section class="records">
+          <p>Monthly stats</p>
+
+          <div class="stats">
+            <div class="amount_spent">
+              <span>amount spent</span><span class="figures">ksh. 1000</span>
+            </div>
+            <div class="psv_boarded">
+              <span>Psv's boarded</span><span class="figures">0%</span>
+            </div>
+            <div class="most_boarded">
+              <span>Your favourite</span><span class="figures">ABC-123</span>
+            </div>
+          </div>
+        </section>
+        <section class="payments">
+          <p>Payments</p>
+          <div class="payment_record">
+            <table>
+              <thead>
+                <tr>
+                  <th>Number Plate</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <!-- Footer content -->
+    </footer>
+
+    <script src="../static/scripts/user_scripts.js"></script>
+  </body>
+</html>

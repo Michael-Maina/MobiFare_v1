@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mobifare - Seamless Mobile Payments for Public Transportation</title>
+    <link rel="stylesheet" type="text/css" href="styles/1-style.css" />
+    <link rel="stylesheet" type="text/css" href="styles/nav.css" />
+    <link rel="stylesheet" href="styles/feature.css" />
+    <link rel="stylesheet" href="styles/pricing.css" />
+    <link rel="stylesheet" href="styles/signup.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Navigation bar or logo here -->
+      <nav class="navbar">
+        <div class="container">
+          <div class="logo">
+            <a href="#">Mobifare</a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+          <ul class="nav-button">
+            <li><a href="#" class="login" id="loginBtn">Login</a></li>
+            <li><a href="#" class="signup" id="loginBtn">Sign Up</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="container">
+              <h2>Login</h2>
+              <form>
+                <div class="form-group">
+                  <label for="firstname">First Name:</label>
+                  <input type="text" id="firstname" name="firstname" required>
+                </div>
+                <div class="form-group">
+                  <label for="lastname">Last Name:</label>
+                  <input type="text" id="lastname" name="lastname" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                  <label for="logger-type">Who are you:</label>
+                  <select id="logger-type" name="logger-type" required>
+                    <option value="" disabled selected>Select type...</option>
+                    <option value="owner">Owner</option>
+                    <option value="user">User</option>
+                  </select>
+                </div>
+                <button class="submit-btn">Submit</button>
+              </form>
+            </div>
+      </div>
+
+  </div>
+
+    <section class="hero">
+      <div class="overlay">
+        <div class="container">
+          <h1>Seamless Mobile Payments for Your Public Transportation</h1>
+          <p>
+            Unlock seamless and secure transactions with PSV Pay, your ultimate
+            mobile payment solution. Say goodbye to cash and cards, and
+            experience the convenience of paying on the go, right from your
+            smartphone
+          </p>
+          <!-- Image showcasing people using public transportation with smartphones -->
+          <a href="#" class="cta-button">Get started</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-testimonials">
+      <div class="container">
+        <div class="card">
+          <i class="fas fa-check"></i>
+          <h3>Convenient Payment</h3>
+          <p>
+            Pay for your public transportation fares easily using your mobile
+            phone.
+          </p>
+        </div>
+        <!-- Add more card divs as needed for features/testimonials -->
+        <div class="card testimonial">
+          <img src="avatar.jpg" alt="User1" />
+          <blockquote>
+            "Mobifare has made my daily commute so much more convenient. Highly
+            recommended!"
+          </blockquote>
+          <cite>- John Doe, New York</cite>
+        </div>
+        <!-- Add more card divs as needed for features/testimonials -->
+      </div>
+    </section>
+
+    <!-- <section class="testimonials">
+      <div class="container">
+        <div class="testimonial">
+          <img src="user1.jpg" alt="User 1" />
+          <blockquote>
+            "Mobifare has made my daily commute so much more convenient. Highly
+            recommended!"
+          </blockquote>
+          <cite>- John Doe, New York</cite>
+        </div>
+        Add more testimonial divs as needed
+      </div>
+    </section> -->
+
+    <section class="how-it-works">
+      <div class="container">
+        <h2>How It Works</h2>
+        <ol>
+          <li>
+            <div class="step">
+              <span>Step 1</span>
+              <h4>Create an Account</h4>
+              <p>Sign up and create your Mobifare account to get started.</p>
+            </div>
+          </li>
+          <!-- Add more step li elements as needed -->
+        </ol>
+      </div>
+    </section>
+
+    <section class="pricing">
+      <div class="container">
+        <h2>Pricing Plans</h2>
+        <!-- <div class="pricing-option">
+          <h3>Basic</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <a href="#" class="cta-button">Get Started</a>
+        </div> -->
+        <div class="pricing-container">
+          <div class="pricing-card">
+            <h2>Basic</h2>
+            <h3>$9.99/month</h3>
+            <ul>
+              <li>Feature 1</li>
+              <li>Feature 2</li>
+              <li>Feature 3</li>
+            </ul>
+            <button>Select Plan</button>
+          </div>
+          <div class="pricing-card">
+            <h2>Standard</h2>
+            <h3>$19.99/month</h3>
+            <ul>
+              <li>Feature 1</li>
+              <li>Feature 2</li>
+              <li>Feature 3</li>
+              <li>Feature 4</li>
+            </ul>
+            <button>Select Plan</button>
+          </div>
+          <div class="pricing-card">
+            <h2>Premium</h2>
+            <h3>$29.99/month</h3>
+            <ul>
+              <li>Feature 1</li>
+              <li>Feature 2</li>
+              <li>Feature 3</li>
+              <li>Feature 4</li>
+              <li>Feature 5</li>
+            </ul>
+            <button>Select Plan</button>
+          </div>
+        </div>
+
+        <!-- Add more pricing-option divs as needed -->
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>Have questions or need assistance? Reach out to our support team.</p>
+        <!-- Add contact form or contact information here -->
+      </div>
+    </section>
+
+    <footer>
+      <!-- Footer content here -->
+    </footer>
+
+    <script src="scripts/landing.js"></script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+.features-testimonials {
+    padding: 40px 0;
+  }
+
+  .card {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .card i {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .card.testimonial {
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+
+  .card.testimonial img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .card.testimonial blockquote {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .card.testimonial cite {
+    font-weight: bold;
+  }
