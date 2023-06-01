@@ -9,11 +9,10 @@ from sqlalchemy.orm import relationship
 class User(BaseModel, Base):
     __tablename__ = 'users'
 
-    username = Column(String(60))
     first_name = Column(String(128))
     last_name = Column(String(128))
-    phone_number = Column(String(60))
-    email_address = Column(String(60))
+    phone_number = Column(String(60), unique=True)
+    email_address = Column(String(60), unique=True)
     password = Column(String(60))
 
     payments = relationship('Payment', backref='user', cascade='all')

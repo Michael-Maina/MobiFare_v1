@@ -47,5 +47,7 @@ class BaseModel():
     def to_dict(self):
         new_dict = self.__dict__.copy()
         del new_dict["_sa_instance_state"]
+        if new_dict["password"]:
+            del new_dict["password"]
 
         return new_dict

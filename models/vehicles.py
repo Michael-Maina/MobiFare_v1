@@ -9,9 +9,10 @@ from sqlalchemy.orm import relationship
 class Vehicle(BaseModel, Base):
     __tablename__ = 'vehicles'
 
-    number_plate = Column(String(60))
+    number_plate = Column(String(60), unique=True)
     owner_id = Column(String(60), ForeignKey('owners.id'))
     operator_id = Column(String(60), ForeignKey('operators.id'))
+
     reviews = relationship("Review", backref="vehicle", cascade="all")
     payments = relationship('Payment', backref='vehicle', cascade='all')
 
