@@ -27,7 +27,7 @@ form.addEventListener('submit', (e)=>{
     };
 
     // Make a POST request to the API endpoint
-    fetch('http://localhost:5000/signup', {
+    fetch('http://localhost:5000/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

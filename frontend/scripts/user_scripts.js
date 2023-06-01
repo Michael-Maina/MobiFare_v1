@@ -1,18 +1,18 @@
 let username_container = document.querySelector(".username");
 let h1 = document.querySelector('.welcome h1')
 
-fetch("http://localhost:5000/users/1cdf2ace-ec7e-4b46-9bca-83cb6eb1a29a")
-  .then((response) => response.json())
-  .then((data) => {
-    // Process the retrieved data
-    console.log(data);
-    username_container.innerHTML = `${data.first_name} ${data.last_name}`;
-    h1.innerHTML = `Welcome ${data.first_name} ${data.last_name}`;
-  })
-  .catch((error) => {
-    // Handle any errors that occurred during the request
-    console.error("Error:", error);
-  });
+// fetch("http://localhost:5000/users/1cdf2ace-ec7e-4b46-9bca-83cb6eb1a29a")
+//   .then((response) => response.json())
+//   .then((data) => {
+//     // Process the retrieved data
+//     console.log(data);
+//     username_container.innerHTML = `${data.first_name} ${data.last_name}`;
+//     h1.innerHTML = `Welcome ${data.first_name} ${data.last_name}`;
+//   })
+//   .catch((error) => {
+//     // Handle any errors that occurred during the request
+//     console.error("Error:", error);
+//   });
 
 
 let payments_table = document.querySelector("table tbody");
