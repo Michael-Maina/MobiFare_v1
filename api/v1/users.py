@@ -3,6 +3,7 @@
 from api.v1.app import app
 from flask import jsonify
 from flask import request
+from hashlib import sha256
 from models import storage
 from models.users import User
 
@@ -21,6 +22,8 @@ def get_users():
 def post_users():
     data = request.get_json()
     print(data)
+    passhash = sha256(data["password"].encode())
+    data.update({"password": passhash.hexdigest()})
     new = User(**data)
     new.save()
 
@@ -54,10 +57,9 @@ def update_user(id):
     data = request.get_json()
 
     if user:
-        for key, value in data.items():
-            setattr(user, key, value)
-
+        user.__dict__.update(data)
         storage.save()
+
     return jsonify({'status': 'ok'})
 
 @app.route('/users/<id>/payments', methods=['GET'])
