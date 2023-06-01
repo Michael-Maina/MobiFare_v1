@@ -14,13 +14,18 @@ amount = 10
 callback_url = 'https://sandbox.safaricom.co.ke/mpesa/'
 
 # Generate the access token
+
+
 def generate_access_token():
     url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
-    response = requests.get(url, auth=HTTPBasicAuth(consumer_key, consumer_secret))
+    response = requests.get(url, auth=HTTPBasicAuth(
+        consumer_key, consumer_secret))
     access_token = response.json()['access_token']
     return access_token
 
 # Generate the password
+
+
 def generate_password():
     timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     data = shortcode + passkey + timestamp
@@ -29,6 +34,8 @@ def generate_password():
     return password
 
 # Send the STK push request
+
+
 def send_stk_push():
     access_token = generate_access_token()
     password = generate_password()

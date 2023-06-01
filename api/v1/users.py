@@ -59,3 +59,17 @@ def update_user(id):
 
         storage.save()
     return jsonify({'status': 'ok'})
+
+@app.route('/users/<id>/payments', methods=['GET'])
+def user_payments(id):
+    user = storage.get(User, id)
+    new = []
+    if user:
+        payments_list = user.payments
+
+        for payment in payments_list:
+            new.append(payment.to_dict())
+
+        return jsonify(new)
+
+    return jsonify([])

@@ -15,3 +15,12 @@ def payments():
         list_payments.append(payment.to_dict())
 
     return jsonify(list_payments)
+
+@app.route('/payments', methods=['POST'])
+def post_payments():
+    data = request.get_json()
+    print(data)
+    new = Payment(**data)
+    new.save()
+
+    return jsonify({'status': 'ok'})
