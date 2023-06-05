@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from flask import Flask, render_template, jsonify
-from flask import Blueprint, redirect, request, session, url_for
+from flask import render_template, jsonify, redirect, request
+from flask import Blueprint, g, session, url_for
 from werkzeug.security import check_password_hash, generate_password_hash
 from models import storage
 from models.users import User
@@ -69,3 +69,15 @@ def login():
 def logout():
     session.clear()
     return redirect('localhost:5000/')
+
+
+'''
+@bp.before_app_request
+def load_logged_in_user():
+    user_id = session.get('user_id')
+
+    if user_id is None:
+        g.user = None
+    else:
+        g.user = storage.get(user_id)
+'''
