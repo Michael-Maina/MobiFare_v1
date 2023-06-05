@@ -5,6 +5,9 @@ import uuid
 
 app = Flask(__name__)
 
+from app.auth import auth
+app.register_blueprint(auth.bp)
+
 @app.route('/')
 def home():
     return render_template("landing_page.html", cache_id=uuid.uuid4())
