@@ -1,26 +1,13 @@
 let username_container = document.querySelector(".username");
 let h1 = document.querySelector('.welcome h1');
 let url = window.location.href;
-console.log(url)
-
-fetch("http://localhost:5000/users/8c435eb2-3f26-4bff-ab3a-8ca33d1e07c3")
-  .then((response) => response.json())
-  .then((data) => {
-    // Process the retrieved data
-    console.log(data);
-    username_container.innerHTML = `${data.first_name} ${data.last_name}`;
-    h1.innerHTML = `Welcome ${data.first_name} ${data.last_name}`;
-  })
-  .catch((error) => {
-    // Handle any errors that occurred during the request
-    console.error("Error:", error);
-  });
+let id = url.split("/").pop()
 
 
 let payments_table = document.querySelector("table tbody");
 let total = 0;
 
-fetch("http://localhost:5000/users/8c435eb2-3f26-4bff-ab3a-8ca33d1e07c3/payments")
+fetch(`http://localhost:5000/users/${id}/payments`)
   .then((response) => response.json())
   .then((data) => {
     // Process the retrieved data

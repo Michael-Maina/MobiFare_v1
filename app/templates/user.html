@@ -8,7 +8,7 @@
     <header class="top-bar">
       <div class="container">
         <div class="logo">Mobifare</div>
-        <div class="username">John Doe</div>
+        <div class="username">{{ name }}</div>
         <!-- Top navigation menu -->
       </div>
     </header>
@@ -25,7 +25,7 @@
 
       <main class="content">
         <section class="welcome">
-          <h1>Welcome, John Doe!</h1>
+          <h1>Welcome, {{ name }}!</h1>
           Here's your dashboard. You can view your payments, transaction
           history, and adjust your settings from the sidebar navigation.
         </section>
@@ -34,7 +34,7 @@
 
           <div class="stats">
             <div class="amount_spent">
-              <span>amount spent</span><span class="figures">ksh. 1000</span>
+              <span>amount spent</span><span class="figures">ksh. 0</span>
             </div>
             <div class="psv_boarded">
               <span>Psv's boarded</span><span class="figures">0%</span>

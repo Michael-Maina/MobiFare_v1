@@ -17,13 +17,15 @@ form.addEventListener('submit', (e)=>{
     let email_address = document.querySelector('#email').value;
     let password = document.querySelector('#password').value;
     let user_type = document.querySelector('#logger-type').value;
+    let phone_number = document.querySelector('#phonenumber').value;
 
     let form_data = {
         'first_name': first_name,
         'last_name': last_name,
         'email_address': email_address,
         'password': password,
-        'user_type': user_type
+        'user_type': user_type,
+        'phone_number': phone_number
     };
 
     // Make a POST request to the API endpoint
@@ -37,8 +39,9 @@ form.addEventListener('submit', (e)=>{
     .then(response => response.json())
     .then(data => {
         // Handle the API response
-        console.log(data);
-        location.replace(`http://localhost:5000/users/${data.id}`)
+        console.log("here");
+        console.log(data.id);
+        location.href = `http://localhost:3000/users/${data.id}`;
     })
     .catch(error => {
         // Handle any errors
