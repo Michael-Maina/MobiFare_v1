@@ -49,3 +49,17 @@ def get_reviews(id):
         return jsonify(new)
 
     return jsonify([])
+
+@app.route('/vehicles/<id>/payments', methods=['GET'])
+def get_payments(id):
+    vehicle = storage.get(Vehicle, id)
+    new = []
+    if vehicle:
+        payment_list = vehicle.payments
+
+        for payment in payment_list:
+            new.append(payment.to_dict())
+
+        return jsonify(new)
+
+    return jsonify([])

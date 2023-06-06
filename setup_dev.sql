@@ -2,7 +2,7 @@
 DROP DATABASE IF EXISTS mobifare_dev_db;
 
 CREATE DATABASE IF NOT EXISTS mobifare_dev_db;
-CREATE USER IF NOT EXISTS 'mobifare_dev'@'localhost' IDENTIFIED BY '123456789';
+CREATE USER IF NOT EXISTS 'mobifare_dev'@'localhost' IDENTIFIED BY '123';
 GRANT ALL PRIVILEGES ON `mobifare_dev_db`.* TO 'mobifare_dev'@'localhost';
 GRANT SELECT ON `performance_schema`.* TO 'mobifare_dev'@'localhost';
 FLUSH PRIVILEGES;

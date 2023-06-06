@@ -7,26 +7,34 @@
 
   /* Global styles */
 body {
-font-family: Arial, sans-serif;
-background-color:  whitesmoke;
-overflow-x: hidden;
-position: relative;
+    font-family: Arial, sans-serif;
+    background-color:  whitesmoke;
+    overflow-x: hidden;
+    position: relative;
 }
 body::-webkit-scrollbar{
     display: none;
 }
-
 .logo{
-    position: absolute;
-    top: 10px;
-    font-size: 24px;
-    margin-left: 30px;
-    font-weight: bold;
-    display: inline;
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 80%;
+    height: 40px;
+    background-image: url(../images/mobifare-logo\ \(1\).png);
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
 }
 .username{
+    padding: 0 30px;
+    text-align: center;
     top: 20px;
     position: absolute;
+    background-image: url(../images/notification.png);
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
     right: 20px;
     font-size: 14px;
 }
@@ -51,26 +59,48 @@ body::-webkit-scrollbar{
     position: fixed;
     width: 15%;
     left: 0;
+    top: 0;
+    z-index: 100;
     border-top: none;
     background-color: white;
     height: 100vh;
-    /* padding: 30px 0; */
+    padding: 0 5px;
     box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
 }
 .sidebar li{
     list-style: none;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
+    text-align: center;
     width: 100%;
-    font-size: 14px;
-    padding: 15px 0 15px 15px;
+    font-size: 12px;
+    padding: 15px 0 15px 0px;
     cursor: pointer;
+    font-weight: 600;
+    background-color: whitesmoke;
+    margin-bottom: 5px;
 }
 .sidebar li:hover{
-  background-color: #f2f2f2;
+  color: #5602ff;
   transition: 50ms ease-in;
 }
-.sidebar li:active{
-  background-color: #ddd;
+.sidebar .dashboard, .settings, .help, .sign_out{
+    background-position: 20px;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 4px;
+}
+.sidebar .dashboard{
+    background-image: url(../images/home-building-outline-symbol.png);
+}
+.sidebar .settings{
+    background-image: url(../images/cogwheel-outline.png);
+}
+.sidebar .help{
+    background-image: url(../images/support.png);
+}
+.sidebar .sign_out{
+    background-image: url(../images/log-out.png);
 }
 
 .content{
@@ -106,10 +136,16 @@ body::-webkit-scrollbar{
     max-width: 50%;
     background-color: white;
     position: absolute;
-    right: 50px;
+    right: 30px;
     top: 0;
+    left: 55%;
     border: 1px solid #ddd;
+    border-radius: 2px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+}
+.bar-container::-webkit-scrollbar{
+    display: none;
 }
 .bar-container span{
     font-size: 12px;
@@ -123,7 +159,7 @@ body::-webkit-scrollbar{
     font-weight: normal;
     font-size: 12px;
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     padding: 20px;
     color: rgb(151, 150, 150);
 }
@@ -144,13 +180,33 @@ body::-webkit-scrollbar{
     margin: 0 20px;
 }
 
+.comment{
+    margin: 5px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    background-color: whitesmoke;
+    margin-bottom: 7px;
+}
+.comment p{
+    padding: 0px 10px 5px 10px;
+    font-size: 12px;
+}
+.comment .plate{
+    font-size: 12px;
+    display: block;
+    margin-bottom: 0px;
+    border: none;
+    padding: 5px 10px;
+    color: rgb(151, 150, 150);
+}
 #myChart{
     width: 100%;
     max-width: 50%;
     background-color: white;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
+    border-radius: 4px;
     height: fit-content;
     /* border: 2px solid black; */
 }
@@ -161,7 +217,7 @@ body::-webkit-scrollbar{
     overflow-y: scroll;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 2px;
+    border-radius: 4px;
     font-size: 14px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -182,17 +238,17 @@ table {
     border-collapse: collapse;
   }
 
-  th, td {
+th, td {
     padding: 10px;
     text-align: left;
     font-size: 12px;
     margin-bottom: 10px;
-  }
+}
 
-  th {
+th {
     background-color: #f2f2f2;
     font-weight: bold;
-  }
+}
   .status-completed {
     color: white;
     background-color: green;

@@ -30,12 +30,18 @@ def post_payments(): # Note this has a bug suggested fix: trigger stk push from 
     vehicles = storage.all(Vehicle).values() # loop throught all vehicles looking for match
     for vehicle in vehicles:
         if vehicle.to_dict().get('number_plate') == number_plate:
+            vehicle_id = vehicle.to_dict().get('id')
             owner_id = vehicle.to_dict().get('owner_id')   # retrive owner_id
 
             owner = storage.get(Owner, owner_id) # get owner object to get shortcode
             print(owner)
             shortcode = owner.to_dict().get("short_code")
             print(shortcode)
+
+            # setattr(data, 'vehicle_id', vehicle_id)
+            data['vehicle_id'] = vehicle_id
+            # setattr(data, 'owner_id', owner_id)
+            # data['owner_id'] = owner_id
 
             response = send_stk_push(amount, number, shortcode) #trigger stkpush
             if response.get("ResponseCode") == '0':

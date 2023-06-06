@@ -13,7 +13,6 @@
   <body>
     <header class="top-bar">
       <div class="container">
-        <div class="logo">Mobifare</div>
         <div class="username">{{ name }}</div>
         <!-- Top navigation menu -->
       </div>
@@ -21,11 +20,12 @@
 
     <div class="container">
       <aside class="sidebar">
+        <div class="logo"></div>
         <ul>
-          <li>Dashboard</li>
-          <li>Settings</li>
-          <li>Help</li>
-          <li>Sign out</li>
+          <li class="dashboard">Dashboard</li>
+          <li class="settings">Settings</li>
+          <li class="help">Help</li>
+          <li class="sign_out">Sign out</li>
         </ul>
       </aside>
 
@@ -37,99 +37,114 @@
         </section>
 
         <section class="charts">
-            <canvas id="myChart"></canvas>
-            <div class="bar-container">
-                <span>Vehicles report</span>
-                <canvas id="barChart"></canvas>
-                <section class="reviews">
-                    <h3>Reviews</h3>
-                    <p class="no_reviews">No reviews made</p>
-                </section>
+          <canvas id="myChart"></canvas>
+          <div class="bar-container">
+            <span>Vehicles report</span>
+            <canvas id="barChart"></canvas>
+            <section class="reviews">
+              <h3>Reviews</h3>
+              <!-- <p class="no_reviews">No reviews made</p> -->
+              <div class="comment"><span class="plate">KBD 247X</span>
+                <p>It was a good ride</p>
             </div>
+            <div class="comment"><span class="plate">KBD 247X</span>
+                <p>It was a good ride</p>
+            </div>
+            <div class="comment"><span class="plate">KBD 247X</span>
+                <p>It was a good ride</p>
+            </div>
+            <div class="comment"><span class="plate">KBD 247X</span>
+                <p>It was a good ride</p>
+            </div>
+            <div class="comment"><span class="plate">KBD 247X</span>
+                <p>It was a good ride</p>
+            </div>
+            </section>
+          </div>
         </section>
         <section class="payments">
-            <p>Payments</p>
-            <div class="payment_record">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Number Plate</th>
-                    <th>Status</th>
-                    <th>Date</th>
-                    <th>Amount</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>ABC-123</td>
-                        <td class="status-completed">Completed</td>
-                        <td>2023-05-31</td>
-                        <td>$50.00</td>
-                      </tr>
-                      <tr>
-                        <td>DEF-456</td>
-                        <td class="status-cancelled">Cancelled</td>
-                        <td>2023-06-01</td>
-                        <td>$75.00</td>
-                      </tr>
-                      <tr>
-                        <td>DEF-456</td>
-                        <td class="status-cancelled">Cancelled</td>
-                        <td>2023-06-01</td>
-                        <td>$75.00</td>
-                      </tr>
-                      <tr>
-                        <td>DEF-456</td>
-                        <td class="status-completed">Completed</td>
-                        <td>2023-06-01</td>
-                        <td>$75.00</td>
-                      </tr>
-                      <tr>
-                        <td>DEF-456</td>
-                        <td class="status-completed">Completed</td>
-                        <td>2023-06-01</td>
-                        <td>$75.00</td>
-                      </tr>
-                      <tr>
-                        <td>DEF-456</td>
-                        <td class="status-completed">Completed</td>
-                        <td>2023-06-01</td>
-                        <td>$75.00</td>
-                      </tr>
-                      <tr>
-                        <td>DEF-456</td>
-                        <td class="status-cancelled">Cancelled</td>
-                        <td>2023-06-01</td>
-                        <td>$75.00</td>
-                      </tr>
-                      <tr>
-                        <td>DEF-456</td>
-                        <td class="status-completed">Completed</td>
-                        <td>2023-06-01</td>
-                        <td>$75.00</td>
-                      </tr>
-                      <tr>
-                        <td>DEF-456</td>
-                        <td class="status-cancelled">Cancelled</td>
-                        <td>2023-06-01</td>
-                        <td>$75.00</td>
-                      </tr>
-                      <tr>
-                        <td>DEF-456</td>
-                        <td class="status-cancelled">Cancelled</td>
-                        <td>2023-06-01</td>
-                        <td>$75.00</td>
-                      </tr>
-                      <tr>
-                        <td>DEF-456</td>
-                        <td class="status-cancelled">Cancelled</td>
-                        <td>2023-06-01</td>
-                        <td>$75.00</td>
-                      </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
+          <p>Payments</p>
+          <div class="payment_record">
+            <table>
+              <thead>
+                <tr>
+                  <th>Number Plate</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ABC-123</td>
+                  <td class="status-completed">Completed</td>
+                  <td>2023-05-31</td>
+                  <td>$50.00</td>
+                </tr>
+                <tr>
+                  <td>DEF-456</td>
+                  <td class="status-cancelled">Cancelled</td>
+                  <td>2023-06-01</td>
+                  <td>$75.00</td>
+                </tr>
+                <tr>
+                  <td>DEF-456</td>
+                  <td class="status-cancelled">Cancelled</td>
+                  <td>2023-06-01</td>
+                  <td>$75.00</td>
+                </tr>
+                <tr>
+                  <td>DEF-456</td>
+                  <td class="status-completed">Completed</td>
+                  <td>2023-06-01</td>
+                  <td>$75.00</td>
+                </tr>
+                <tr>
+                  <td>DEF-456</td>
+                  <td class="status-completed">Completed</td>
+                  <td>2023-06-01</td>
+                  <td>$75.00</td>
+                </tr>
+                <tr>
+                  <td>DEF-456</td>
+                  <td class="status-completed">Completed</td>
+                  <td>2023-06-01</td>
+                  <td>$75.00</td>
+                </tr>
+                <tr>
+                  <td>DEF-456</td>
+                  <td class="status-cancelled">Cancelled</td>
+                  <td>2023-06-01</td>
+                  <td>$75.00</td>
+                </tr>
+                <tr>
+                  <td>DEF-456</td>
+                  <td class="status-completed">Completed</td>
+                  <td>2023-06-01</td>
+                  <td>$75.00</td>
+                </tr>
+                <tr>
+                  <td>DEF-456</td>
+                  <td class="status-cancelled">Cancelled</td>
+                  <td>2023-06-01</td>
+                  <td>$75.00</td>
+                </tr>
+                <tr>
+                  <td>DEF-456</td>
+                  <td class="status-cancelled">Cancelled</td>
+                  <td>2023-06-01</td>
+                  <td>$75.00</td>
+                </tr>
+                <tr>
+                  <td>DEF-456</td>
+                  <td class="status-cancelled">Cancelled</td>
+                  <td>2023-06-01</td>
+                  <td>$75.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </main>
     </div>
 
