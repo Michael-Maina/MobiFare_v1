@@ -1,0 +1,216 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Global styles */
+body {
+font-family: Arial, sans-serif;
+background-color:  whitesmoke;
+overflow-x: hidden;
+position: relative;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+
+.logo{
+    position: absolute;
+    top: 10px;
+    font-size: 24px;
+    margin-left: 30px;
+    font-weight: bold;
+    display: inline;
+}
+.username{
+    top: 20px;
+    position: absolute;
+    right: 20px;
+    font-size: 14px;
+}
+
+.top-bar {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: block;
+    height: 60px;
+    background-color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.top-bar .container{
+    border: none;
+}
+
+.sidebar {
+    position: fixed;
+    width: 15%;
+    left: 0;
+    border-top: none;
+    background-color: white;
+    height: 100vh;
+    /* padding: 30px 0; */
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+}
+.sidebar li{
+    list-style: none;
+    border: 1px solid #ddd;
+    width: 100%;
+    font-size: 14px;
+    padding: 15px 0 15px 15px;
+    cursor: pointer;
+}
+.sidebar li:hover{
+  background-color: #f2f2f2;
+  transition: 50ms ease-in;
+}
+.sidebar li:active{
+  background-color: #ddd;
+}
+
+.content{
+    width: 82%;
+    height: auto;
+    position: absolute;
+    right: 0;
+    padding-bottom: 20px;
+}
+.content .welcome{
+    height: 60px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.container{
+    display: block;
+    margin-top: 60px;
+}
+.container .welcome{
+    font-size: 12px;
+    line-height: 25px;
+}
+
+.charts{
+    position: relative;
+    display: block;
+    margin-bottom: 40px;
+}
+.bar-container{
+    min-height: 300px;
+    max-height: 500px;
+    max-width: 50%;
+    background-color: white;
+    position: absolute;
+    right: 50px;
+    top: 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.bar-container span{
+    font-size: 12px;
+    display: block;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    color: rgb(151, 150, 150);
+}
+.bar-container h3{
+    font-weight: normal;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 15px;
+    padding: 20px;
+    color: rgb(151, 150, 150);
+}
+.bar-container .no_reviews{
+    font-weight: bold;
+    font-size: 13px;
+    color: rgb(151, 150, 150);
+    text-align: center;
+    padding-bottom: 30px;
+}
+#barChart{
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    margin: 0 20px;
+}
+
+#myChart{
+    width: 100%;
+    max-width: 50%;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    height: fit-content;
+    /* border: 2px solid black; */
+}
+.container .payments{
+    display: block;
+    width: 50%;
+    max-height: 400px;
+    overflow-y: scroll;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .container .payments::-webkit-scrollbar{
+    display: none;
+  }
+.container .payments p{
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 10px;
+    color: rgb(151, 150, 150);
+    border-bottom: 1px solid #ddd;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  .status-completed {
+    color: white;
+    background-color: green;
+    text-align: center;
+    display: inline-block;
+    border-radius: 4px;
+    width: 70px;
+    padding: 4px;
+    margin-top: 10px;
+  }
+
+  .status-cancelled {
+    color: white;
+    background-color: red;
+    text-align: center;
+    width: 70px;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 4px;
+  }
+

@@ -3,10 +3,10 @@
 from flask import Flask, request, jsonify, make_response, redirect, url_for
 import jwt
 from flask_cors import CORS
-from models import storage
-from models.users import User
-from models.owners import Owner
-from models.operators import Operator
+#from models import storage
+#from models.users import User
+#from models.owners import Owner
+#from models.operators import Operator
 from werkzeug.security import generate_password_hash, check_password_hash
 # from authenticate import token_required
 
