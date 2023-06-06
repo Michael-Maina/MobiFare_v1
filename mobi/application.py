@@ -4,11 +4,9 @@ from flask import Flask, render_template
 from models import storage
 from models.users import User
 import uuid
-import auth
 
 
 app = Flask(__name__)
-app.register_blueprint(auth.bp)
 
 
 @app.route('/')

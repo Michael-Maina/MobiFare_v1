@@ -3,19 +3,14 @@
 from flask import Flask, request, jsonify, make_response, redirect, url_for
 import jwt
 from flask_cors import CORS
-#from models import storage
-#from models.users import User
-#from models.owners import Owner
-#from models.operators import Operator
 from werkzeug.security import generate_password_hash, check_password_hash
-# from authenticate import token_required
+from api.v1.auth import bp
 
 SECRET_KEY = "752a138157bb5c953d4affed3c12d71a314e65399139b1723e5e9f66e80106ec"
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_POOL_RECYCLE'] = 3600
-
+app.register_blueprint(bp)
 
 # @app.teardown_appcontext
 # def close_db(td):
@@ -92,7 +87,7 @@ def no_login():
 #     last_name = request.form.get('last_name')
 #     email_address = request.form.get('email_address')
 #     password = request.form.get('password')
-#     phone_number = request.form.get('phone_number')
+#     phone_number = xrequest.form.get('phone_number')
 #     app_user = request.form.get('user_type')
 
 #     data = {}
