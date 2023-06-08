@@ -58,3 +58,20 @@ def post_vehicle(id):
     new_instance.save()
 
     return jsonify(new_instance.to_dict())
+
+
+@app.route('/owners/<id>', methods=['PUT'])
+def update_owner(id):
+    owner = storage.get(Owner, id)
+
+    data = request.get_json()
+
+    if owner:
+        for attr, value in data.items():
+            setattr(owner, attr, value)
+
+        print(owner.__dict__)
+        owner.save()
+        return jsonify({'status': 'ok'})
+
+    return jsonify([])

@@ -83,7 +83,7 @@ body::-webkit-scrollbar{
   color: #5602ff;
   transition: 50ms ease-in;
 }
-.sidebar .dashboard, .settings, .help, .sign_out{
+.sidebar .dashboard, .settings, .help, .sign_out, .vehicle_register{
     background-position: 20px;
     background-size: 20px;
     background-repeat: no-repeat;
@@ -102,7 +102,9 @@ body::-webkit-scrollbar{
 .sidebar .sign_out{
     background-image: url(../images/log-out.png);
 }
-
+.sidebar .vehicle_register{
+    background-image: url(../images/car-register.png);
+}
 .content{
     width: 82%;
     height: auto;
@@ -269,4 +271,76 @@ th {
     border-radius: 4px;
     padding: 4px;
   }
+
+
+  .hidden{
+    display: none;
+  }
+
+
+.coming_soon{
+    margin-left: -3%;
+    position: relative;
+    height: 100vh;
+    font-size: 18px;
+}
+.coming_soon p {
+    position: absolute;
+    top: 40%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    color: rgba(97, 97, 97, 0.71);
+}
+
+
+.dropbtn {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  background-color: whitesmoke;
+  /* position: absolute; */
+  width: 100%;
+  margin-top: 10px;
+  padding: 0 7px;
+}
+
+.dropdown-content li {
+  display: block;
+  margin-top: 5px;
+  padding: 0;
+  background-color: whitesmoke;
+  border-radius: 4px;
+}
+.dropdown-content li:hover{
+    background-color: rgba(62, 60, 60, 0.042);
+}
+.dropdown-content p {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content p:hover {
+    color: #5602ff;
+}
+
+.dropbtn:hover .dropdown-content {
+  display: block;
+}
+.dropbtn:hover .settings{
+    background-position: 0px;
+}
+
+.dropbtn:hover .dropbtn {
+  background-color: #ccc;
+}
 

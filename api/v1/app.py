@@ -9,13 +9,14 @@ from models.owners import Owner
 from models.operators import Operator
 from werkzeug.security import generate_password_hash, check_password_hash
 # from authenticate import token_required
+from api.v1.auth import bp
 
 SECRET_KEY = "752a138157bb5c953d4affed3c12d71a314e65399139b1723e5e9f66e80106ec"
 
 app = Flask(__name__)
 CORS(app)
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 3600
-
+app.register_blueprint(bp)
 
 # @app.teardown_appcontext
 # def close_db(td):

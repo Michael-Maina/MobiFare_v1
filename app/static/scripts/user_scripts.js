@@ -15,39 +15,30 @@ fetch(`http://localhost:5000/users/${id}/payments`)
     for (const payment of data) {
       let record = document.createElement("tr");
 
-      fetch(`http://localhost:5000/vehicles/${payment['vehicle_id']}`)
-        .then((response) => response.json())
-        .then((vehicleData) => {
-          // Process the retrieved data
-          let plate = vehicleData['number_plate'];
-          let number_plate = document.createElement('td');
-          number_plate.innerHTML = plate;
-          record.appendChild(number_plate);
+      let plate = payment.number_plate;
+      let number_plate = document.createElement('td');
+      number_plate.innerHTML = plate;
+      record.appendChild(number_plate);
 
-          let status = document.createElement('td');
-          status.innerHTML = 'completed';
-          status.classList.add('status-completed')
-          record.appendChild(status);
+      let status = document.createElement('td');
+      status.innerHTML = 'completed';
+      status.classList.add('status-completed')
+      record.appendChild(status);
 
-          let date = document.createElement('td');
-          date.innerHTML = payment['created_at'];
-          record.appendChild(date);
+      let date = document.createElement('td');
+      date.innerHTML = payment['created_at'];
+      record.appendChild(date);
 
-          let amount = document.createElement('td');
-          amount.innerHTML = `ksh. ${payment['amount']}`;
-          total += payment['amount'];
+      let amount = document.createElement('td');
+      amount.innerHTML = `ksh. ${payment['amount']}`;
+      total += payment['amount'];
 
-          let total_container = document.querySelector('.amount_spent .figures');
-          total_container.innerHTML = `ksh. ${total}`;
+      let total_container = document.querySelector('.amount_spent .figures');
+      total_container.innerHTML = `ksh. ${total}`;
 
-          record.appendChild(amount);
+      record.appendChild(amount);
 
-          payments_table.appendChild(record);
-        })
-        .catch((error) => {
-          // Handle any errors that occurred during the request
-          console.error("Error:", error);
-        });
+      payments_table.appendChild(record);
     }
 
   })

@@ -42,7 +42,7 @@ def post_payments(): # Note this has a bug suggested fix: trigger stk push from 
             data['vehicle_id'] = vehicle_id
             # setattr(data, 'owner_id', owner_id)
             # data['owner_id'] = owner_id
-
+            print('here')
             response = send_stk_push(amount, number, shortcode) #trigger stkpush
             if response.get("ResponseCode") == '0':
                 new = Payment(**data)

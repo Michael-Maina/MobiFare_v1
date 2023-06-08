@@ -2,7 +2,12 @@
 <html>
   <head>
     <title>User Page - Mobifare</title>
-    <link rel="stylesheet" type="text/css" href="../static/styles/user.css?{{ cache_id }}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/styles/user.css?{{ cache_id }}"
+    />
+    <link rel="stylesheet" href="../static/styles/payment.css">
   </head>
   <body>
     <header class="top-bar">
@@ -17,6 +22,7 @@
         <div class="logo"></div>
         <ul>
           <li class="dashboard">Dashboard</li>
+          <li class="payment">Pay</li>
           <li class="settings">Settings</li>
           <li class="help">Help</li>
           <li class="sign_out">Sign out</li>
@@ -24,42 +30,66 @@
       </aside>
 
       <main class="content">
-        <section class="welcome">
-          <h1>Welcome, {{ name }}!</h1>
-          Here's your dashboard. You can view your payments, transaction
-          history, and adjust your settings from the sidebar navigation.
+        <section id="dashboard-content">
+          <section class="welcome">
+            <h1>Welcome, {{ name }}!</h1>
+            Here's your dashboard. You can view your payments, transaction
+            history, and adjust your settings from the sidebar navigation.
+          </section>
+          <section class="records">
+            <p>Monthly stats</p>
+            <div class="stats">
+              <div class="amount_spent">
+                <span>amount spent</span><span class="figures">ksh. 0</span>
+              </div>
+              <div class="psv_boarded">
+                <span>Psv's boarded</span><span class="figures">0%</span>
+              </div>
+              <div class="most_boarded">
+                <span>Your favourite</span><span class="figures"></span>
+              </div>
+            </div>
+          </section>
+          <section class="payments">
+            <p>Payments</p>
+            <div class="payment_record">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Number Plate</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
         </section>
-        <section class="records">
-          <p>Monthly stats</p>
-
-          <div class="stats">
-            <div class="amount_spent">
-              <span>amount spent</span><span class="figures">ksh. 0</span>
-            </div>
-            <div class="psv_boarded">
-              <span>Psv's boarded</span><span class="figures">0%</span>
-            </div>
-            <div class="most_boarded">
-              <span>Your favourite</span><span class="figures">ABC-123</span>
-            </div>
+        <section id="payment-content" class="coming_soon">
+          <!-- <p>Coming soon</p> -->
+          <div class="payment-container">
+            <h2>Pay</h2>
+            <div class="payment-icon"></div>
+            <form>
+              <div class="form-group">
+                <label for="Amount">Amount:</label>
+                <input type="text" id="amount" name="Amount" required/>
+              </div>
+              <div class="form-group">
+                <label for="number-plate">Number Plate:</label>
+                <input type="text" id="number-plate" name="number-plate" required/>
+              </div>
+              <button class="pay-btn">Pay</button>
+            </form>
           </div>
         </section>
-        <section class="payments">
-          <p>Payments</p>
-          <div class="payment_record">
-            <table>
-              <thead>
-                <tr>
-                  <th>Number Plate</th>
-                  <th>Status</th>
-                  <th>Date</th>
-                  <th>Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
-          </div>
+        <section id="settings-content" class="coming_soon">
+          <p>Coming soon</p>
+        </section>
+        <section id="help-content" class="coming_soon">
+          <p>Coming soon</p>
         </section>
       </main>
     </div>
@@ -69,5 +99,7 @@
     </footer>
 
     <script src="../static/scripts/user_scripts.js"></script>
+    <script src="../static/scripts/user_menu.js"></script>
+    <script src="../static/scripts/payment.js"></script>
   </body>
 </html>

@@ -18,17 +18,17 @@ def home():
 def user_dashboard(id):
     user_obj = storage.get(User, id)
 
-    name = user_obj.first_name + ' ' + user_obj.last_name
+    # name = user_obj.__dict__['first_name'] + ' ' + user_obj.__dict__['last_name']
 
-    return render_template("user.html", cache_id=uuid.uuid4(), name=name)
+    return render_template("user.html", cache_id=uuid.uuid4())
 
 @app.route('/owners/<id>')
 def owner_dashboard(id):
     owner_obj = storage.get(Owner, id)
 
-    name = owner_obj.first_name + ' ' + owner_obj.last_name
+    # name = owner_obj.__dict__['first_name'] + ' ' + owner_obj.__dict__['last_name']
 
-    return render_template("owner.html", cache_id=uuid.uuid4(), name=name)
+    return render_template("owner.html", cache_id=uuid.uuid4())
 
 if __name__ == '__main__':
     app.run(port=3000, debug=True)

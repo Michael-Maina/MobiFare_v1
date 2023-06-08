@@ -12,4 +12,4 @@ class Operator(BaseModel, Base):
     last_name = Column(String(128))
     phone_number = Column(String(60), unique=True)
     email_address = Column(String(60), unique=True)
-    password = Column(String(60))
+    password = Column(String(255))
