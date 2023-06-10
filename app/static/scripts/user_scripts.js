@@ -3,6 +3,15 @@ let h1 = document.querySelector('.welcome h1');
 let url = window.location.href;
 let id = url.split("/").pop()
 
+fetch(`http://localhost:5000/users/${id}`)
+  .then((response) => response.json())
+  .then((data) => {
+    username_container.innerHTML = `${data.first_name} ${data.last_name}`;
+    h1.innerHTML = `Welcome ${data.first_name} ${data.last_name}!`
+  })
+  .catch((error) => {
+    console.error(error);
+});
 
 let payments_table = document.querySelector("table tbody");
 let total = 0;

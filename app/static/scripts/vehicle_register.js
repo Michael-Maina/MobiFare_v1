@@ -29,11 +29,11 @@ form.addEventListener('submit', (e)=>{
         console.log("here");
         if (data.id){
             document.querySelector('#register-content form').reset();
-            document.querySelector('#register-content .container').classList.add('hidden');
+            document.querySelector('#register-content .register-container').classList.add('hidden');
             document.querySelector('#register-content .success').classList.remove('hidden');
 
             setTimeout(()=>{
-                document.querySelector('#register-content .container').classList.remove('hidden');
+                document.querySelector('#register-content .register-container').classList.remove('hidden');
                 document.querySelector('#register-content .success').classList.add('hidden');
             }, 2000);
         }

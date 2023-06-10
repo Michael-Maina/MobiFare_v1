@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from api.v1.app import app
-from flask import jsonify
+from flask import jsonify, redirect
 from flask import request
 from models import storage
 from models.owners import Owner
@@ -75,3 +75,13 @@ def update_owner(id):
         return jsonify({'status': 'ok'})
 
     return jsonify([])
+
+
+@app.route('/owners/<id>', methods=['DELETE'])
+def delete_owner(id):
+    owner = storage.get(Owner, id)
+
+    if owner:
+        storage.delete(owner)
+
+    return redirect('http://localhost:3000/', 301)

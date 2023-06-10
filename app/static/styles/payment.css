@@ -59,3 +59,12 @@ input[type="text"]
     width: 100%;
     margin: 15px 0;
 }
+
+.success{
+    background-image: url(../images/check.png);
+    background-position: center;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translate(-4%, 400%);
+}

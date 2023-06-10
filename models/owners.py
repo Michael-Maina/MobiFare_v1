@@ -15,7 +15,7 @@ class Owner(BaseModel, Base):
     email_address = Column(String(60), unique=True)
     password = Column(String(255))
     payment_mode = Column(String(60))
-    short_code = Column(String(60), unique=True)
+    short_code = Column(String(60))
     account_number = Column(String(60), unique=True)
 
     vehicles = relationship('Vehicle', backref='owner', cascade='all')

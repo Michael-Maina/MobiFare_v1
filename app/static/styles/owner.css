@@ -172,6 +172,15 @@ body::-webkit-scrollbar{
     text-align: center;
     padding-bottom: 30px;
 }
+.bar-container .barchart-no_vehicles{
+    text-align: center;
+    position: absolute;
+    top: 38%;
+    left: 40%;
+    color: rgb(151, 150, 150);
+    font-size: 13px;
+    font-weight: bold;
+}
 #barChart{
     width: 100%;
     max-width: 400px;

@@ -37,6 +37,15 @@ payment_form.addEventListener('submit', (e)=>{
         // Handle the API response
         console.log("here");
         console.log(data);
+
+        payment_form.reset();
+        document.querySelector('#payment-content .payment-container').classList.add('hidden');
+        document.querySelector('#payment-content .success').classList.remove('hidden');
+
+        setTimeout(()=>{
+            document.querySelector('#payment-content .payment-container').classList.remove('hidden');
+            document.querySelector('#payment-content .success').classList.add('hidden');
+        }, 2000);
     })
     .catch(error => {
         // Handle any errors

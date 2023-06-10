@@ -39,6 +39,7 @@ form.addEventListener('submit', (e)=>{
     .then(response =>{
         console.log(response);
         if (response.redirected) {
+            form.reset();
             window.location.href = response.url;
         }
     })
@@ -82,6 +83,7 @@ loginform.addEventListener('submit', (e)=>{
     .then(response =>{
         console.log(response);
         if (response.redirected) {
+            loginform.reset();
             window.location.href = response.url;
         }
     })
