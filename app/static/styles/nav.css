@@ -1,30 +1,29 @@
 header {
     top: 0;
-    height: 70px;
+    height: 65px;
     position: sticky;
     z-index: 9999;
-    /* background-color: #fff; */
+    background-color: transparent;
+    transition-property: background-color, color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
   }
 li {
     list-style-type: none;
 }
-/* nav {
-    height: 70px;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-} */
 
 nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-nav .logo a {
+.logo, .nav-links, .nav-button{
+    display: inline-block;
+}
+nav .logo a{
     font-size: 24px;
+    font-weight: bold;
     text-decoration: none;
-    color: #fff;
 }
 
 nav .nav-links {
@@ -43,16 +42,14 @@ nav .nav-links li:first-child {
     margin-left: 0;
 }
 
-nav .nav-links li a {
+.nav-links li a {
     text-decoration: none;
-    color: #fff;
 }
 
-nav .container .nav-button {
-    width: 150px;
-    display: flex;
-    justify-content: space-between;
+nav .container .nav-button li{
+    display: inline-block;
 }
+
 nav .container .nav-button li a{
     list-style-type: none;
     text-decoration: none;
@@ -60,21 +57,54 @@ nav .container .nav-button li a{
 
 .login{
     color: #fff;
+    margin-right: 15px;
+    cursor: pointer;
 }
-.signup {
-    background-color: #3498db;
-    color: #fff;
-    padding: 7px 20px;
-    border: none;
+
+/* .signup-scroll{
+    padding: 9px 20px;
+    border: 1px solid white;
     border-radius: 3px;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    color: #ddd;
+    background-color: #3498db;
+} */
+
+#loginBtn {
+    /* background-color: #dddddd46; */
+    background-color: #dee7fc;
+    /* color: #fff; */
+    color: #4279ee;
+    padding: 9px 20px;
+    border: 1px solid #c9d8fa;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
 }
 
 .signup:hover {
-    opacity: 0.8;
+    background-color: #ddd;
+    color: #04548d;
 }
 
+.navbar .container .transparent{
+    background-color: transparent;
+}
+
+.white{
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.white-link{
+    color: #fff;
+}
+
+.blue-link{
+    color: #4279ee;
+    /* color: #2162eb; */
+    /* color: black; */
+}
 
 
 
