@@ -38,16 +38,32 @@ def post_payments(): # Note this has a bug suggested fix: trigger stk push from 
             shortcode = owner.to_dict().get("short_code")
             print(shortcode)
 
-            # setattr(data, 'vehicle_id', vehicle_id)
             data['vehicle_id'] = vehicle_id
-            # setattr(data, 'owner_id', owner_id)
-            # data['owner_id'] = owner_id
+
             print('here')
             response = send_stk_push(amount, number, shortcode) #trigger stkpush
+
             if response.get("ResponseCode") == '0':
+                data["MerchantRequestID"] = response["MerchantRequestID"]
+                data['status'] = "pending"
                 new = Payment(**data)
                 new.save()
 
             return jsonify({'status': 'ok'})
 
     return jsonify({"error":"vehicle doesn't exist"})
+
+
+@app.route('/confirmation', methods=['POST'])
+def confirm_payments():
+    data = request.get_json()
+    print(data)
+    payments = storage.all(Payment).values()
+    MerchantRequestID = data['Body']['stkCallback']['MerchantRequestID']
+
+    for payment in payments:
+        if payment.to_dict().get('MerchantRequestID') == MerchantRequestID:
+            payment.to_dict()['status'] = 'completed'
+            break
+
+    return jsonify([])

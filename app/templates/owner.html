@@ -27,6 +27,7 @@
             Settings
             <ul class="dropdown-content">
               <li class="update-profile"><p>Update Profile</p></li>
+              <li class="vehicles_registered"><p>Your vehicles</p></li>
               <li class="delete-profile"><p>Delete Profile</p></li>
             </ul>
           </li>
@@ -99,7 +100,6 @@
           <p>Coming soon</p>
         </section>
         <section id="settings-content">
-          <!-- <p>Coming soon</p> -->
           <div class="update">
             <div class="container">
               <h2>Update</h2>
@@ -129,6 +129,23 @@
               </form>
             </div>
           </div>
+          <div class="your_vehicles coming_soon">
+            <!-- <p>You have no vehicles registered</p> -->
+            <table class="vehicles_table">
+              <thead>
+                <tr>
+                  <th>Number Plate</th>
+                  <th>ID</th>
+                  <th>Created At</th>
+                  <th>Delete</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+
+          </div>
           <div class="delete coming_soon">
             <p>Coming soon</p>
           </div>
@@ -140,5 +157,6 @@
     <script src="../static/scripts/owner_menu.js"></script>
     <script src="../static/scripts/vehicle_register.js"></script>
     <script src="../static/scripts/update.js"></script>
+    <script src="../static/scripts/delete_vehicle.js"></script>
   </body>
 </html>

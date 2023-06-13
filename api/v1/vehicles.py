@@ -26,6 +26,16 @@ def post_vehicles():
 
     return jsonify({'status': 'ok'})
 
+@app.route('/vehicles/<id>', methods=['DELETE'])
+def delete_vehicle(id):
+    vehicle = storage.get(Vehicle, id)
+
+    if vehicle:
+        storage.delete(vehicle)
+        return jsonify({'status': 'ok'})
+
+    return jsonify([])
+
 
 @app.route('/vehicles/<id>', methods=['GET'])
 def get_vehicle(id):

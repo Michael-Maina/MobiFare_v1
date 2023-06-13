@@ -4,6 +4,8 @@
       // var settingsLi = document.querySelector('.settings');
       var updateLi = document.querySelector('.settings .update-profile');
       var deleteLi = document.querySelector('.settings .delete-profile');
+      var vehiclesLi = document.querySelector('.settings .vehicles_registered');
+
 
       var helpLi = document.querySelector('.help');
       var signOutLi = document.querySelector('.sign_out');
@@ -13,6 +15,8 @@
       var registerContent = document.getElementById('register-content');
       var updateContent = document.querySelector('#settings-content .update');
       var deleteContent = document.querySelector('#settings-content .delete');
+      var your_vehiclesContent = document.querySelector('#settings-content .your_vehicles');
+
       var helpContent = document.getElementById('help-content');
 
 
@@ -32,6 +36,11 @@
         updateContent.classList.remove('hidden');
       });
 
+      vehiclesLi.addEventListener('click', function() {
+        hideAllContent();
+        your_vehiclesContent.classList.remove('hidden');
+      });
+
       deleteLi.addEventListener('click', function() {
         hideAllContent();
         deleteContent.classList.remove('hidden');
@@ -48,6 +57,7 @@
         dashboardContent.classList.add('hidden');
         registerContent.classList.add('hidden');
         updateContent.classList.add('hidden');
+        your_vehiclesContent.classList.add('hidden');
         deleteContent.classList.add('hidden');
         helpContent.classList.add('hidden');
       }

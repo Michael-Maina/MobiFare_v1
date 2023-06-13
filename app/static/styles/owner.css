@@ -353,3 +353,20 @@ th {
   background-color: #ccc;
 }
 
+.delete_button{
+    border: 1px solid gray;
+    cursor: pointer;
+    border-radius: 4px;
+    color: red;
+    padding: 5px 15px;
+    transition: 0.5s;
+}
+.delete_button:hover{
+    transform: translateY(-2px);
+}
+.delete_button:active{
+    transform: translateY(2px);
+}
+.vehicles_table{
+    margin-left: 5px;
+}

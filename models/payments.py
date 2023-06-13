@@ -11,5 +11,7 @@ class Payment(BaseModel, Base):
     vehicle_id = Column(String(60), ForeignKey('vehicles.id'))
     number_plate = Column(String(60))
     amount = Column(Integer)
+    status = Column(String(60))
+    MerchantRequestID = Column(String(60))
 
 

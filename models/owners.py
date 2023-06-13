@@ -18,7 +18,7 @@ class Owner(BaseModel, Base):
     short_code = Column(String(60))
     account_number = Column(String(60), unique=True)
 
-    vehicles = relationship('Vehicle', backref='owner', cascade='all')
+    vehicles = relationship('Vehicle', backref='owner', cascade='all, delete')
 
 
     @property
