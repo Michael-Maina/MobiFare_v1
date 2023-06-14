@@ -20,13 +20,6 @@ app.register_blueprint(app_views)
 # def close_db(td):
 #     storage.close()
 
-from api.v1.reviews import *
-from api.v1.payments import *
-from api.v1.vehicles import *
-from api.v1.owners import *
-from api.v1.operators import *
-from api.v1.users import *
-
 
 if __name__ == '__main__':
     app.run(debug=True)

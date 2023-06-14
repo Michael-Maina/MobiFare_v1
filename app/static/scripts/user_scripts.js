@@ -3,7 +3,7 @@ let h1 = document.querySelector('.welcome h1');
 let url = window.location.href;
 let id = url.split("/").pop()
 
-fetch(`http://localhost:5000/users/${id}`)
+fetch(`https://mobifare.tech/api/users/${id}`)
   .then((response) => response.json())
   .then((data) => {
     username_container.innerHTML = `${data.first_name} ${data.last_name}`;
@@ -16,7 +16,7 @@ fetch(`http://localhost:5000/users/${id}`)
 let payments_table = document.querySelector("table tbody");
 let total = 0;
 
-fetch(`http://localhost:5000/users/${id}/payments`)
+fetch(`https://mobifare.tech/api/users/${id}/payments`)
   .then((response) => response.json())
   .then((data) => {
     // Process the retrieved data
@@ -63,4 +63,3 @@ fetch(`http://localhost:5000/users/${id}/payments`)
     // Handle any errors that occurred during the request
     console.error("Error:", error);
   });
-

@@ -1,7 +1,7 @@
 vehiclesLi.addEventListener("click", fill_vehicles);
 
 function fill_vehicles() {
-  fetch(`http://localhost:5000/owners/${owner_id}/vehicles`)
+  fetch(`https://mobifare.tech/api/owners/${owner_id}/vehicles`)
     .then((response) => response.json())
     .then((data) => {
       const tableBody = document.querySelector(".vehicles_table tbody");
@@ -49,7 +49,7 @@ function fill_vehicles() {
 }
 
 function deleteRow(vehicle_id) {
-  fetch(`http://localhost:5000/vehicles/${vehicle_id}`, {
+  fetch(`https://mobifare.tech/api/vehicles/${vehicle_id}`, {
     method: "DELETE",
   })
     .then((response) => {

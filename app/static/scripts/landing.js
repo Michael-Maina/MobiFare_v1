@@ -80,7 +80,7 @@ form.addEventListener("submit", (e) => {
   };
 
   // Make a POST request to the API endpoint
-  fetch("http://localhost:5000/api/signup", {
+  fetch("https://mobifare.tech/auth/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -126,7 +126,7 @@ loginform.addEventListener("submit", (e) => {
   };
   console.log(form_data);
   // Make a POST request to the API endpoint
-  fetch("http://localhost:5000/api/login", {
+  fetch("https://mobifare.tech/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

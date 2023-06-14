@@ -57,7 +57,7 @@ dashboardContent.classList.remove("hidden");
 
 
 function fillform() {
-  fetch(`http://localhost:5000/users/${id}`)
+  fetch(`https://mobifare.tech/api/users/${id}`)
     .then((response) => {
       return response.json();
     })
@@ -89,7 +89,7 @@ update_form.addEventListener("submit", (e) => {
   };
 
   console.log(form_data);
-  fetch(`http://localhost:5000/users/${id}`, {
+  fetch(`https://mobifare.tech/api/users/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -113,5 +113,5 @@ update_form.addEventListener("submit", (e) => {
 
 
 signOutLi.addEventListener('click', function (){
-  window.location.href = 'http://localhost:3000';
+  window.location.href = 'https://mobifare.tech/';
 })

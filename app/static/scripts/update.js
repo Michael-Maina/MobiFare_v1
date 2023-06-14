@@ -1,6 +1,6 @@
 
 function fillform() {
-    fetch(`http://localhost:5000/owners/${id}`)
+    fetch(`https://mobifare.tech/api/owners/${id}`)
     .then((response)=>{
         return response.json();
     })
@@ -36,7 +36,7 @@ update_form.addEventListener('submit', (e)=>{
     };
 
     console.log(form_data);
-    fetch(`http://localhost:5000/owners/${id}`, {
+    fetch(`https://mobifare.tech/api/owners/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
