@@ -9,7 +9,7 @@ consumer_key = 'pa5PLASxAViWAH6wERSnmW8vrWwGKam1'
 consumer_secret = 'dvU9LvsYu3GtD1vs'
 shortcode = '174379'
 passkey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
-phone_number = '254718024636'
+phone_number = '25418024636'
 amount = 10
 callback_url = 'https://sandbox.safaricom.co.ke/mpesa/'
 

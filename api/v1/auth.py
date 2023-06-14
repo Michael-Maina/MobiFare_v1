@@ -26,6 +26,8 @@ def signup():
 
         all_users = storage.all(user_type).values()
         check = False
+        response = jsonify({'message': 'Redirecting'})
+        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000/'
 
         for user in all_users:
             if user.email_address == email:
@@ -36,9 +38,11 @@ def signup():
                 data.update({'password': generate_password_hash(password)})
                 new_user = user_type(**data)
                 new_user.save()
+                new_url = 'http://localhost:3000/users/' + new_user.id
+                response.headers['Access-Control-Allow-Origin'] = new_url
                 #session.clear()
                 #session['user_id'] = new_user.id
-                return redirect('http://localhost:3000/users/' + new_user.id, 301)
+                return redirect(new_url, 301)
     return redirect('http://localhost:3000/', 301)
 
 
@@ -64,9 +68,9 @@ def login():
                     flash('Incorrect password')
                     return jsonify({'error': 'wrong password'})
 
-                if not check:
-                    flash('User does not exist')
-                    return redirect(url_for('auth.signup'), 301)
+            if not check:
+                flash('User does not exist')
+                return redirect(url_for('auth.signup'), 301)
 
     return redirect('http://localhost:3000/', 301)
 

@@ -31,15 +31,23 @@ form.addEventListener('submit', (e)=>{
     // Make a POST request to the API endpoint
     fetch('http://localhost:5000/signup', {
         method: 'POST',
+        redirect: 'follow',
+        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(form_data)
     })
-    .then(response => response.json())
+    .then(response => {
+        // if (response.redirected) {
+        //     window.location.href = response.url;
+        // }
+        // console.log(response);
+        response.json();
+    })
     .then(data => {
         // Handle the API response
-        console.log("here");
+        console.log(data);
         console.log(data.id);
         location.href = `http://localhost:3000/users/${data.id}`;
     })
