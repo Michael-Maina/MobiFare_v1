@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <head>
+    <title>User Page - Mobifare</title>
+    <link rel="stylesheet" href="../static/styles/owner.css?{{ cache_id }}" />
+    <link
+      rel="stylesheet"
+      href="../static/styles/vehicle_register.css?{{ cache_id }}"
+    />
+    <link rel="stylesheet" href="../static/styles/update.css?{{ cache_id }}">
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="container">
+        <div class="username">{{ name }}</div>
+      </div>
+    </header>
+
+    <div class="container">
+      <aside class="sidebar">
+        <div class="logo"></div>
+        <ul>
+          <li class="dashboard">Dashboard</li>
+          <li class="vehicle_register">Register</li>
+          <li class="settings dropbtn">
+            Settings
+            <ul class="dropdown-content">
+              <li class="update-profile"><p>Update Profile</p></li>
+              <li class="vehicles_registered"><p>Your vehicles</p></li>
+              <li class="delete-profile"><p>Delete Profile</p></li>
+            </ul>
+          </li>
+          <li class="help">Help</li>
+          <li class="sign_out">Sign out</li>
+        </ul>
+      </aside>
+
+      <main class="content">
+        <section id="dashboard-content">
+          <section class="welcome">
+            <h1>Welcome, {{ name }}!</h1>
+            Here's your dashboard. You can monitor your vehicles, transaction
+            history of the vehicles, and adjust your settings from the sidebar navigation.
+          </section>
+          <section class="charts">
+            <canvas id="myChart"></canvas>
+            <div class="bar-container">
+              <span>Vehicles report</span>
+              <canvas id="barChart"></canvas>
+              <section class="reviews">
+                <h3>Reviews</h3>
+                <p class="no_reviews">No reviews made</p>
+              </section>
+            </div>
+          </section>
+          <section class="payments">
+            <p>Payments</p>
+            <div class="payment_record">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Number Plate</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+        <section id="register-content">
+          <div class="register-container">
+            <h2>Register</h2>
+            <div class="register-icon"></div>
+            <form autocomplete="off">
+              <div class="form-group">
+                <label for="numberplate">Number Plate:</label>
+                <input
+                  type="text"
+                  id="number-plate"
+                  name="numberplate"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="operator">Operator email:</label>
+                <input type="email" id="operator-email" name="operator" />
+              </div>
+              <button class="submit">Register</button>
+            </form>
+          </div>
+          <div class="success hidden"></div>
+        </section>
+        <section id="help-content" class="coming_soon">
+          <p>Coming soon</p>
+        </section>
+        <section id="settings-content">
+          <div class="update">
+            <div class="container">
+              <h2>Update</h2>
+              <form autocomplete="off">
+                <div class="form-group">
+                  <label for="first-name">First Name:</label>
+                  <input
+                    type="text"
+                    id="first-name"
+                    name="first-name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Last Name:</label>
+                  <input type="text" id="last-name" name="last-name" />
+                </div>
+                <div class="form-group">
+                  <label for="phone-number">Phone number:</label>
+                  <input type="text" id="phone-number" name="phone-number" />
+                </div>
+                <div class="form-group">
+                  <label for="short-code">Short code:</label>
+                  <input type="text" id="short-code" name="short-code" />
+                </div>
+                <button class="submit-btn">Submit</button>
+              </form>
+            </div>
+          </div>
+          <div class="your_vehicles coming_soon">
+            <!-- <p>You have no vehicles registered</p> -->
+            <table class="vehicles_table">
+              <thead>
+                <tr>
+                  <th>Number Plate</th>
+                  <th>ID</th>
+                  <th>Created At</th>
+                  <th>Delete</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+
+          </div>
+          <div class="delete coming_soon">
+            <p>Coming soon</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../static/scripts/owner_scripts.js"></script>
+    <script src="../static/scripts/owner_menu.js"></script>
+    <script src="../static/scripts/vehicle_register.js"></script>
+    <script src="../static/scripts/update.js"></script>
+    <script src="../static/scripts/delete_vehicle.js"></script>
+  </body>
+</html>
