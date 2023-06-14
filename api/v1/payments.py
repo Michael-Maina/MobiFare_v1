@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from api.v1.app import app
 from flask import jsonify
 from flask import request
 from models import storage
@@ -8,8 +7,9 @@ from models.owners import Owner
 from models.payments import Payment
 from models.vehicles import Vehicle
 from api.v1.payment_app import send_stk_push
+from api.v1 import app_views
 
-@app.route('/payments')
+@app_views.route('/payments')
 def payments():
     payments_list = storage.all(Payment).values()
     list_payments = []
@@ -18,7 +18,7 @@ def payments():
 
     return jsonify(list_payments)
 
-@app.route('/payments', methods=['POST'])
+@app_views.route('/payments', methods=['POST'])
 def post_payments(): # Note this has a bug suggested fix: trigger stk push from client side the have this as the route for confirmation url
     data = request.get_json()
     print(data)
@@ -53,7 +53,7 @@ def post_payments(): # Note this has a bug suggested fix: trigger stk push from 
     return jsonify({"error":"vehicle doesn't exist"})
 
 
-@app.route('/confirmation', methods=['POST'])#This is the confirmation URL for confirming the stk push
+@app_views.route('/confirmation', methods=['POST'])#This is the confirmation URL for confirming the stk push
 def confirm_payments():
     data = request.get_json()
 

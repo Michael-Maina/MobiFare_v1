@@ -80,7 +80,7 @@ form.addEventListener("submit", (e) => {
   };
 
   // Make a POST request to the API endpoint
-  fetch("http://localhost:5000/signup", {
+  fetch("http://localhost:5000/api/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -126,7 +126,7 @@ loginform.addEventListener("submit", (e) => {
   };
   console.log(form_data);
   // Make a POST request to the API endpoint
-  fetch("http://localhost:5000/login", {
+  fetch("http://localhost:5000/api/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
