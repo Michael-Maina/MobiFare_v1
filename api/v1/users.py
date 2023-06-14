@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
-from api.v1.app import app
 from flask import jsonify, redirect, url_for, render_template
 from flask import request
 from hashlib import sha256
 from models import storage
 from models.users import User
+from api.v1 import app_views
 
 
-@app.route('/users', methods=['GET'])
+@app_views.route('/users', methods=['GET'])
 def get_users():
     user_list = storage.all(User).values()
     list_users = []
@@ -18,7 +18,7 @@ def get_users():
     return jsonify(list_users)
 
 
-@app.route('/users', methods=['POST'])
+@app_views.route('/users', methods=['POST'])
 def post_users():
     data = request.get_json()
     print(data)
@@ -30,7 +30,7 @@ def post_users():
     return jsonify(new.to_dict())
 
 
-@app.route('/users/<id>')
+@app_views.route('/users/<id>')
 def user_id(id):
     user_list = storage.all(User).values()
 
@@ -41,7 +41,7 @@ def user_id(id):
     return jsonify([])
 
 
-@app.route('/users/<id>', methods=['DELETE'])
+@app_views.route('/users/<id>', methods=['DELETE'])
 def delete_user(id):
     user = storage.get(User, id)
 
@@ -50,7 +50,7 @@ def delete_user(id):
     return jsonify({'status': 'ok'})
 
 
-@app.route('/users/<id>', methods=['PUT'])
+@app_views.route('/users/<id>', methods=['PUT'])
 def update_user(id):
     user = storage.get(User, id)
 
@@ -66,7 +66,7 @@ def update_user(id):
     return jsonify([])
 
 
-@app.route('/users/<id>/payments', methods=['GET'])
+@app_views.route('/users/<id>/payments', methods=['GET'])
 def user_payments(id):
     user = storage.get(User, id)
     new = []

@@ -16,7 +16,7 @@ form.addEventListener('submit', (e)=>{
     };
 
     // Make a POST request to the API endpoint
-    fetch(`http://localhost:5000/owners/${owner_id}/vehicles`, {
+    fetch(`https://mobifare.tech/api/owners/${owner_id}/vehicles`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

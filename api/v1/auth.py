@@ -8,7 +8,7 @@ from models.users import User
 from models.owners import Owner
 from models.operators import Operator
 
-bp = Blueprint('auth', __name__, url_prefix='')
+bp = Blueprint('auth', __name__, url_prefix='/auth/')
 
 classes = {'user': User, 'owner': Owner, 'operator': Operator}
 

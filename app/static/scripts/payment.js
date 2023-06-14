@@ -1,4 +1,4 @@
-fetch(`http://localhost:5000/users/${id}`)
+fetch(`https://mobifare.tech/api/users/${id}`)
 .then((response)=>{
     return response.json();
 })
@@ -25,7 +25,7 @@ payment_form.addEventListener('submit', (e)=>{
     };
 
     console.log(form_data);
-    fetch(`http://localhost:5000/payments`, {
+    fetch(`https://mobifare.tech/api/payments`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

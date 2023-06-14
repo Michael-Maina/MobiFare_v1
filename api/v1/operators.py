@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
-from api.v1.app import app
 from flask import jsonify
 from flask import request
 from models import storage
 from models.operators import Operator
+from api.v1 import app_views
 
-
-@app.route('/operators')
+@app_views.route('/operators')
 def operators():
     operators_list = storage.all(Operator).values()
     list_operators = []

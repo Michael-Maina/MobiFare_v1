@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-from api.v1.app import app
 from flask import jsonify
 from flask import request
 from models import storage
 from models.vehicles import Vehicle
+from api.v1 import app_views
 
 
-@app.route('/vehicles', methods=['GET'])
+@app_views.route('/vehicles', methods=['GET'])
 def vehicles():
     vehicles_list = storage.all(Vehicle).values()
     list_vehicles = []
@@ -17,7 +17,7 @@ def vehicles():
     return jsonify(list_vehicles)
 
 
-@app.route('/vehicles', methods=['POST'])
+@app_views.route('/vehicles', methods=['POST'])
 def post_vehicles():
     data = request.get_json()
     print(data)
@@ -26,7 +26,7 @@ def post_vehicles():
 
     return jsonify({'status': 'ok'})
 
-@app.route('/vehicles/<id>', methods=['DELETE'])
+@app_views.route('/vehicles/<id>', methods=['DELETE'])
 def delete_vehicle(id):
     vehicle = storage.get(Vehicle, id)
 
@@ -37,7 +37,7 @@ def delete_vehicle(id):
     return jsonify([])
 
 
-@app.route('/vehicles/<id>', methods=['GET'])
+@app_views.route('/vehicles/<id>', methods=['GET'])
 def get_vehicle(id):
     vehicle = storage.get(Vehicle, id)
     if vehicle:
@@ -46,7 +46,7 @@ def get_vehicle(id):
     return jsonify([])
 
 
-@app.route('/vehicles/<id>/reviews', methods=['GET'])
+@app_views.route('/vehicles/<id>/reviews', methods=['GET'])
 def get_reviews(id):
     vehicle = storage.get(Vehicle, id)
     new = []
@@ -60,7 +60,7 @@ def get_reviews(id):
 
     return jsonify([])
 
-@app.route('/vehicles/<id>/payments', methods=['GET'])
+@app_views.route('/vehicles/<id>/payments', methods=['GET'])
 def get_payments(id):
     vehicle = storage.get(Vehicle, id)
     new = []

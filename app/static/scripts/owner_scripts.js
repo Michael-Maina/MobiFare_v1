@@ -7,7 +7,7 @@ let username_container = document.querySelector(".username");
 const sumArray = (array) => array.reduce((total, num) => total + num, 0);
 
 
-fetch(`http://localhost:5000/owners/${id}`)
+fetch(`https://mobifare.tech/api/owners/${id}`)
   .then((response) => response.json())
   .then((data) => {
     username_container.innerHTML = `${data.first_name} ${data.last_name}`;
@@ -42,7 +42,7 @@ fetch(`http://localhost:5000/owners/${id}`)
 
 
 let vehicle_dict = {};
-fetch(`http://localhost:5000/owners/${id}/vehicles`)
+fetch(`https://mobifare.tech/api/owners/${id}/vehicles`)
   .then((response) => response.json())
   .then((vehicles) => {
     console.log(vehicles);
@@ -57,7 +57,7 @@ fetch(`http://localhost:5000/owners/${id}/vehicles`)
       let vehicle_id = vehicle["id"];
       i = 0;
       if (vehicle_id) {
-        fetch(`http://localhost:5000/vehicles/${vehicle_id}/payments`)
+        fetch(`https://mobifare.tech/api/vehicles/${vehicle_id}/payments`)
           .then((response) => response.json())
           .then((payments) => {
 
@@ -188,4 +188,3 @@ fetch(`http://localhost:5000/owners/${id}/vehicles`)
     // Handle any errors that occurred during the request
     console.error("Error:", error);
   });
-

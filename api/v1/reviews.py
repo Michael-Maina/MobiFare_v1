@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-from api.v1.app import app
 from flask import jsonify
 from flask import request
 from models import storage
 from models.reviews import Review
+from api.v1 import app_views
 
 
-@app.route('/reviews')
+@app_views.route('/reviews')
 def reviews():
     reviews_list = storage.all(Review).values()
     list_reviews = []
@@ -17,7 +17,7 @@ def reviews():
     return jsonify(list_reviews)
 
 
-@app.route('/reviews', methods=['POST'])
+@app_views.route('/reviews', methods=['POST'])
 def post_reviews():
     data = request.get_json()
 

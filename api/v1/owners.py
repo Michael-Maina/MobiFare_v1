@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 
-from api.v1.app import app
 from flask import jsonify, redirect
 from flask import request
 from models import storage
 from models.owners import Owner
 from models.vehicles import Vehicle
+from api.v1 import app_views
 
-
-@app.route('/owners', methods=['GET'])
+@app_views.route('/owners', methods=['GET'])
 def owners():
     owners_list = storage.all(Owner).values()
     list_owners = []
@@ -18,7 +17,7 @@ def owners():
     return jsonify(list_owners)
 
 
-@app.route('/owners/<id>', methods=['GET'])
+@app_views.route('/owners/<id>', methods=['GET'])
 def get_owner(id):
     owner = storage.get(Owner, id)
 
@@ -28,7 +27,7 @@ def get_owner(id):
     return jsonify([])
 
 
-@app.route('/owners', methods=['POST'])
+@app_views.route('/owners', methods=['POST'])
 def post_owner():
     data = request.get_json()
 
@@ -38,7 +37,7 @@ def post_owner():
     return jsonify(new_instance.to_dict())
 
 
-@app.route('/owners/<id>/vehicles', methods=['GET'])
+@app_views.route('/owners/<id>/vehicles', methods=['GET'])
 def owner_vehicles(id):
     owner = storage.get(Owner, id)
     new = []
@@ -49,7 +48,7 @@ def owner_vehicles(id):
     return jsonify(new)
 
 
-@app.route('/owners/<id>/vehicles', methods=['POST'])
+@app_views.route('/owners/<id>/vehicles', methods=['POST'])
 def post_vehicle(id):
     data = request.get_json()
 
@@ -60,7 +59,7 @@ def post_vehicle(id):
     return jsonify(new_instance.to_dict())
 
 
-@app.route('/owners/<id>', methods=['PUT'])
+@app_views.route('/owners/<id>', methods=['PUT'])
 def update_owner(id):
     owner = storage.get(Owner, id)
 
@@ -77,7 +76,7 @@ def update_owner(id):
     return jsonify([])
 
 
-@app.route('/owners/<id>', methods=['DELETE'])
+@app_views.route('/owners/<id>', methods=['DELETE'])
 def delete_owner(id):
     owner = storage.get(Owner, id)
 
