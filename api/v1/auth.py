@@ -36,15 +36,15 @@ def signup():
             #session.clear()
             #session['user_id'] = new_user.id
             if user_type == Owner:
-                url = 'http://localhost:3000/owners/' + new_user.id
+                url = 'https://mobifare.tech/owners/' + new_user.id
             elif user_type == User:
-                url = 'http://localhost:3000/users/' + new_user.id
+                url = 'https://mobifare.tech/users/' + new_user.id
             elif user_type == Operator:
-                url = 'http://localhost:3000/operators/' + new_user.id
+                url = 'https://mobifare.tech/operators/' + new_user.id
 
             return redirect(url, 301)
 
-    return redirect('http://localhost:3000/', 301)
+    return redirect('https://mobifare.tech/', 301)
 
 
 @bp.route('/login', methods=['GET', 'POST'])
@@ -64,11 +64,11 @@ def login():
                     check = True
 
                     if user_type == Owner:
-                        url = 'http://localhost:3000/owners/' + user.id
+                        url = 'https://mobifare.tech/owners/' + user.id
                     elif user_type == User:
-                        url = 'http://localhost:3000/users/' + user.id
+                        url = 'https://mobifare.tech/users/' + user.id
                     elif user_type == Operator:
-                        url = 'http://localhost:3000/operators/' + user.id
+                        url = 'https://mobifare.tech/operators/' + user.id
 
                     return redirect(url, 301)
                 else:
@@ -79,9 +79,9 @@ def login():
             flash('User does not exist')
             return redirect(url_for('auth.signup'), 301)
 
-    return redirect('http://localhost:3000/', 301)
+    return redirect('https://mobifare.tech/', 301)
 
 @bp.route('/logout')
 def logout():
     session.clear()
-    return redirect('localhost:5000/')
+    return redirect('https://mobifare.tech/')
