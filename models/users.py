@@ -13,10 +13,10 @@ class User(BaseModel, Base):
     last_name = Column(String(128))
     phone_number = Column(String(60), unique=True)
     email_address = Column(String(60), unique=True)
-    password = Column(String(60))
+    password = Column(String(255))
 
-    payments = relationship('Payment', backref='user', cascade='all')
-    reviews = relationship("Review", backref="user", cascade="all")
+    payments = relationship('Payment', backref='user', cascade='all, delete')
+    reviews = relationship("Review", backref="user", cascade="all, delete")
 
     def __init__(self, *args, **kwargs):
         """initializes user"""

@@ -13,8 +13,8 @@ class Vehicle(BaseModel, Base):
     owner_id = Column(String(60), ForeignKey('owners.id'))
     operator_id = Column(String(60), ForeignKey('operators.id'))
 
-    reviews = relationship("Review", backref="vehicle", cascade="all")
-    payments = relationship('Payment', backref='vehicle', cascade='all')
+    reviews = relationship("Review", backref="vehicle", cascade="all, delete")
+    payments = relationship("Payment", backref="vehicle", cascade="all, delete")
 
     @property
     def reviews(self):

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mobifare - Seamless Mobile Payments for Public Transportation</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/styles/1-style.css?{{ cache_id }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/styles/nav.css?{{ cache_id }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/styles/feature.css?{{ cache_id }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/styles/pricing.css?{{ cache_id }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/styles/signup.css?{{ cache_id }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/styles/login.css?{{ cache_id }}"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- Navigation bar or logo here -->
+      <nav class="navbar">
+        <div class="container">
+          <div class="logo">
+            <a href="#">Mobifare</a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features-testimonials">Features-testimonials</a></li>
+            <!-- <li><a href="#">Testimonials</a></li> -->
+            <li><a href="#howitworks">How It Works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+          <ul class="nav-button">
+            <li><a href="#" class="login" id="login">Login</a></li>
+            <li><a href="#" class="signup" id="loginBtn">Sign Up</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div id="modal-login" class="modal">
+      <div class="modal-content">
+        <span class="close-login">&times;</span>
+        <div class="container">
+          <h2>Login</h2>
+          <form class="form-login">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email-login" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input
+                type="password"
+                id="password-login"
+                name="password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="logger-type">Who are you:</label>
+              <select id="logger-type-login" name="logger-type" required>
+                <option value="" disabled selected>Select type...</option>
+                <option value="owner">Owner</option>
+                <option value="user">User</option>
+              </select>
+            </div>
+            <button class="submit-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-signup" class="modal">
+      <div class="modal-content">
+        <span class="close-signup">&times;</span>
+        <div class="container">
+          <h2>Signup</h2>
+          <form class="form-signup">
+            <div class="form-group">
+              <label for="firstname">First Name:</label>
+              <input type="text" id="firstname" name="firstname" required />
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last Name:</label>
+              <input type="text" id="lastname" name="lastname" required />
+            </div>
+            <div class="form-group">
+              <label for="lastname">Phone Number:</label>
+              <input type="text" id="phonenumber" name="phonenumber" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+            <div class="form-group">
+              <label for="logger-type">Who are you:</label>
+              <select id="logger-type" name="logger-type" required>
+                <option value="" disabled selected>Select type...</option>
+                <option value="owner">Owner</option>
+                <option value="user">User</option>
+              </select>
+            </div>
+            <button class="submit-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <section id="home" class="hero">
+      <div class="overlay">
+        <div class="container">
+          <h1>Seamless Mobile Payments for Your Public Transportation</h1>
+          <p>
+            Unlock seamless and secure transactions with PSV Pay, your ultimate
+            mobile payment solution. Say goodbye to cash and cards, and
+            experience the convenience of paying on the go, right from your
+            smartphone
+          </p>
+          <!-- Image showcasing people using public transportation with smartphones -->
+          <a href="#" class="cta-button">Get started</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features-testimonials" class="features-testimonials">
+      <div class="container">
+        <div class="feature">
+          <i class="fas fa-check"></i>
+          <h3>Convenient Mobile Payments</h3>
+          <p>
+            Experience hassle-free payment for your public transportation fares
+            through your mobile phone.
+          </p>
+        </div>
+        <div class="testimonials">
+          <div class="card testimonial">
+            <img src="../static/images/avatar.jpg" alt="User1" />
+            <blockquote>
+              "Mobifare has revolutionized my daily commute, offering a seamless
+              payment solution. I highly recommend it!"
+            </blockquote>
+            <cite>- John Doe, New York</cite>
+          </div>
+          <div class="card testimonial">
+            <img src="../static/images/avatar.jpg" alt="User1" />
+            <blockquote>
+              "Mobifare has revolutionized my daily commute, offering a seamless
+              payment solution. I highly recommend it!"
+            </blockquote>
+            <cite>- John Doe, New York</cite>
+          </div>
+          <div class="card testimonial">
+            <img src="../static/images/avatar.jpg" alt="User1" />
+            <blockquote>
+              "Mobifare has revolutionized my daily commute, offering a seamless
+              payment solution. I highly recommend it!"
+            </blockquote>
+            <cite>- John Doe, New York</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="howitworks" class="how-it-works">
+      <div class="container">
+        <h2>How It Works</h2>
+        <ol>
+          <li>
+            <div class="step">
+              <div class="step-image">
+                <img src="../static/images/smartphone.png" alt="Step 1" />
+              </div>
+              <div class="step-content">
+                <span>Step 1</span>
+                <h4>Create an Account</h4>
+                <p>Sign up and create your Mobifare account to get started.</p>
+              </div>
+            </div>
+          </li>
+          <div class="arrow">
+            <img src="../static/images/rotated-right-arrow-with-broken-line.png" alt="Arrow" />
+          </div>
+          <li>
+            <div class="step">
+              <div class="step-image">
+                <img src="../static/images/driver.png" alt="Step 1" />
+              </div>
+              <div class="step-content">
+                <span>Step 2</span>
+                <h4>Board a Registered Vehicle</h4>
+                <p>Find a registered Mobifare vehicle and board it for your commute.</p>
+              </div>
+            </div>
+          </li>
+          <div class="arrow">
+            <img src="../static/images/rotated-right-arrow-with-broken-line.png" alt="Arrow" />
+          </div>
+          <li>
+            <div class="step">
+              <div class="step-image">
+                <img src="../static/images/online-pay.png" alt="Step 3" />
+              </div>
+              <div class="step-content">
+                <span>Step 3</span>
+                <h4>Click Pay and Enter Number Plate</h4>
+                <p>Click the Pay button and enter your vehicle's number plate to make the payment.</p>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
+
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <h2>Pricing Plans</h2>
+        <div class="pricing-container">
+          <div class="pricing-card">
+            <h2>Basic</h2>
+            <h3>$9.99/month</h3>
+            <ul>
+              <li>Feature 1</li>
+              <li>Feature 2</li>
+              <li>Feature 3</li>
+            </ul>
+            <button>Select Plan</button>
+          </div>
+          <div class="pricing-card">
+            <h2>Standard</h2>
+            <h3>$19.99/month</h3>
+            <ul>
+              <li>Feature 1</li>
+              <li>Feature 2</li>
+              <li>Feature 3</li>
+              <li>Feature 4</li>
+            </ul>
+            <button>Select Plan</button>
+          </div>
+          <div class="pricing-card">
+            <h2>Premium</h2>
+            <h3>$29.99/month</h3>
+            <ul>
+              <li>Feature 1</li>
+              <li>Feature 2</li>
+              <li>Feature 3</li>
+              <li>Feature 4</li>
+              <li>Feature 5</li>
+            </ul>
+            <button>Select Plan</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>Have questions or need assistance? Reach out to our support team.</p>
+        <div class="contact-form">
+          <form>
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Your Email" />
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+
+    <script src="../static/scripts/landing.js"></script>
+  </body>
+</html>

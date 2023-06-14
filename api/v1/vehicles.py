@@ -26,6 +26,16 @@ def post_vehicles():
 
     return jsonify({'status': 'ok'})
 
+@app.route('/vehicles/<id>', methods=['DELETE'])
+def delete_vehicle(id):
+    vehicle = storage.get(Vehicle, id)
+
+    if vehicle:
+        storage.delete(vehicle)
+        return jsonify({'status': 'ok'})
+
+    return jsonify([])
+
 
 @app.route('/vehicles/<id>', methods=['GET'])
 def get_vehicle(id):
@@ -45,6 +55,20 @@ def get_reviews(id):
 
         for review in reviews_list:
             new.append(review.to_dict())
+
+        return jsonify(new)
+
+    return jsonify([])
+
+@app.route('/vehicles/<id>/payments', methods=['GET'])
+def get_payments(id):
+    vehicle = storage.get(Vehicle, id)
+    new = []
+    if vehicle:
+        payment_list = vehicle.payments
+
+        for payment in payment_list:
+            new.append(payment.to_dict())
 
         return jsonify(new)
 

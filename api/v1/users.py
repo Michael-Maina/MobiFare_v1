@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from api.v1.app import app
-from flask import jsonify
+from flask import jsonify, redirect, url_for, render_template
 from flask import request
 from hashlib import sha256
 from models import storage
@@ -27,7 +27,7 @@ def post_users():
     new = User(**data)
     new.save()
 
-    return jsonify({'status': 'ok'})
+    return jsonify(new.to_dict())
 
 
 @app.route('/users/<id>')
@@ -57,7 +57,25 @@ def update_user(id):
     data = request.get_json()
 
     if user:
-        user.__dict__.update(data)
-        storage.save()
+        for attr, value in data.items():
+            setattr(user, attr, value)
 
-    return jsonify({'status': 'ok'})
+        user.save()
+        return jsonify({'status': 'ok'})
+
+    return jsonify([])
+
+
+@app.route('/users/<id>/payments', methods=['GET'])
+def user_payments(id):
+    user = storage.get(User, id)
+    new = []
+    if user:
+        payments_list = user.payments
+
+        for payment in payments_list:
+            new.append(payment.to_dict())
+
+        return jsonify(new)
+
+    return jsonify([])
