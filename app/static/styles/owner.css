@@ -260,6 +260,16 @@ th {
     background-color: #f2f2f2;
     font-weight: bold;
 }
+.status-pending{
+    color: white;
+    background-color: rgba(213, 138, 0, 0.936);
+    text-align: center;
+    width: 70px;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 10px;
+  }
   .status-completed {
     color: white;
     background-color: green;

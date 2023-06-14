@@ -69,6 +69,7 @@ fetch(`http://localhost:5000/owners/${id}/vehicles`)
 
             for (const payment of payments) {
 
+              console.log(payment)
               let record = document.createElement("tr");
 
               let plate = payment.number_plate;
@@ -76,9 +77,16 @@ fetch(`http://localhost:5000/owners/${id}/vehicles`)
               number_plate.innerHTML = plate;
               record.appendChild(number_plate);
 
+              let curr_status = payment.status
               let status = document.createElement('td');
-              status.innerHTML = 'completed';
-              status.classList.add('status-completed')
+              status.innerHTML = curr_status
+              if (curr_status == 'pending'){
+                status.classList.add('status-pending');
+              }else if(curr_status == 'completed'){
+                status.classList.add('status-completed');
+              }else if(curr_status == 'cancelled'){
+                status.classList.add('status-cancelled');
+              }
               record.appendChild(status);
 
               let date = document.createElement('td');

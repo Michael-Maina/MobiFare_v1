@@ -23,7 +23,13 @@
         <ul>
           <li class="dashboard">Dashboard</li>
           <li class="payment">Pay</li>
-          <li class="settings">Settings</li>
+          <li class="settings dropbtn">
+            Settings
+            <ul class="dropdown-content">
+              <li class="update-profile"><p>Update Profile</p></li>
+              <li class="delete-profile"><p>Delete Profile</p></li>
+            </ul>
+          </li>
           <li class="help">Help</li>
           <li class="sign_out">Sign out</li>
         </ul>
@@ -85,8 +91,32 @@
           </div>
           <div class="success hidden"></div>
         </section>
-        <section id="settings-content" class="coming_soon">
-          <p>Coming soon</p>
+        <section id="settings-content">
+          <div class="update">
+            <div class="container">
+              <h2>Update</h2>
+              <form autocomplete="off">
+                <div class="form-group">
+                  <label for="first-name">First Name:</label>
+                  <input
+                    type="text"
+                    id="first-name"
+                    name="first-name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Last Name:</label>
+                  <input type="text" id="last-name" name="last-name" />
+                </div>
+                <div class="form-group">
+                  <label for="phone-number">Phone number:</label>
+                  <input type="text" id="phone-number" name="phone-number" />
+                </div>
+                <button class="submit-btn">Update</button>
+              </form>
+            </div>
+          </div>
         </section>
         <section id="help-content" class="coming_soon">
           <p>Coming soon</p>

@@ -24,7 +24,6 @@ def post_payments(): # Note this has a bug suggested fix: trigger stk push from 
     print(data)
     amount = data.get("amount")
     number = data.get("phone_number")
-    # shortcode = data.get("shortcode")
     number_plate = data.get("number_plate") # get vehicle number plate
 
     vehicles = storage.all(Vehicle).values() # loop throught all vehicles looking for match
@@ -54,16 +53,20 @@ def post_payments(): # Note this has a bug suggested fix: trigger stk push from 
     return jsonify({"error":"vehicle doesn't exist"})
 
 
-@app.route('/confirmation', methods=['POST'])
+@app.route('/confirmation', methods=['POST'])#This is the confirmation URL for confirming the stk push
 def confirm_payments():
     data = request.get_json()
-    print(data)
+
     payments = storage.all(Payment).values()
     MerchantRequestID = data['Body']['stkCallback']['MerchantRequestID']
 
     for payment in payments:
         if payment.to_dict().get('MerchantRequestID') == MerchantRequestID:
-            payment.to_dict()['status'] = 'completed'
+            if data['Body']['stkCallback']['ResultCode'] == 0:
+                setattr(payment, 'status', 'completed')
+            else:
+                setattr(payment, 'status', 'cancelled')
+
             break
 
     return jsonify([])

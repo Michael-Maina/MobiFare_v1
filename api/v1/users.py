@@ -57,10 +57,14 @@ def update_user(id):
     data = request.get_json()
 
     if user:
-        user.__dict__.update(data)
-        storage.save()
+        for attr, value in data.items():
+            setattr(user, attr, value)
 
-    return jsonify({'status': 'ok'})
+        user.save()
+        return jsonify({'status': 'ok'})
+
+    return jsonify([])
+
 
 @app.route('/users/<id>/payments', methods=['GET'])
 def user_payments(id):

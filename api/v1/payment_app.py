@@ -9,13 +9,12 @@ consumer_key = 'pa5PLASxAViWAH6wERSnmW8vrWwGKam1'
 consumer_secret = 'dvU9LvsYu3GtD1vs'
 # shortcode = '174379'
 passkey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
-# phone_number = '254708626805'
 # amount = 10
 callback_url = 'https://sandbox.safaricom.co.ke/mpesa/'
+#callback_url = 'http://web-02.nextgenhub.tech/confirmation'
+
 
 # Generate the access token
-
-
 def generate_access_token():
     url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
     response = requests.get(url, auth=HTTPBasicAuth(
@@ -24,8 +23,6 @@ def generate_access_token():
     return access_token
 
 # Generate the password
-
-
 def generate_password(shortcode):
     timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     data = shortcode + passkey + timestamp
@@ -34,8 +31,6 @@ def generate_password(shortcode):
     return password
 
 # Send the STK push request
-
-
 def send_stk_push(amount, phone_number, shortcode):
     access_token = generate_access_token()
     password = generate_password(shortcode)

@@ -239,6 +239,17 @@ transition: 50ms ease-in;
     background-color: #f2f2f2;
     font-weight: bold;
   }
+
+  .status-pending{
+    color: white;
+    background-color: rgba(213, 138, 0, 0.936);
+    text-align: center;
+    width: 70px;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 10px;
+  }
   .status-completed {
     color: white;
     background-color: green;
@@ -277,3 +288,69 @@ transition: 50ms ease-in;
     color: rgba(97, 97, 97, 0.71);
 }
 
+.dropbtn {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  background-color: whitesmoke;
+  /* position: absolute; */
+  width: 100%;
+  margin-top: 10px;
+  padding: 0 7px;
+}
+
+.dropdown-content li {
+  display: block;
+  margin-top: 5px;
+  padding: 0;
+  background-color: whitesmoke;
+  border-radius: 4px;
+}
+.dropdown-content li:hover{
+    background-color: rgba(62, 60, 60, 0.042);
+}
+.dropdown-content p {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content p:hover {
+    color: #5602ff;
+}
+
+.dropbtn:hover .dropdown-content {
+  display: block;
+}
+.dropbtn:hover .settings{
+    background-position: 0px;
+}
+
+.dropbtn:hover .dropbtn {
+  background-color: #ccc;
+}
+
+.update .container h2{
+  text-align: center;
+}
+
+.update .container{
+  margin-left: -30px;
+  margin-top: 5px;
+}
+.update .container .submit-btn{
+  cursor: pointer;
+  margin-top: 8px;
+  padding: 5px 13px;
+  position: absolute;
+  left: 45%;
+}

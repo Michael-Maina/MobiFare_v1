@@ -65,3 +65,7 @@
       // Show the default content initially
       hideAllContent();
       dashboardContent.classList.remove('hidden');
+
+      signOutLi.addEventListener('click', function (){
+        window.location.href = 'http://localhost:3000';
+      })
